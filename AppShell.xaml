@@ -3,12 +3,25 @@
     x:Class="Friziderko.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Friziderko"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:Friziderko.View"
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+        ContentTemplate="{DataTemplate views:FriziderPage}"
+        Route="FriziderPage" />
+    <ShellContent
+        Title="Moj profil"
+        ContentTemplate="{DataTemplate views:MojProfilPage}"
+        Route="MojProfilPage" />
+    <ShellContent
+        Title="O nama"
+        Icon="about_us_icon.png"
+        ContentTemplate="{DataTemplate views:ONamaPage}"
+        Route="ONamaPage" />
+    <MenuItem
+        IconImageSource="help_icon.png"
+        Text="Pomoć"
+        />
+   
 </Shell>
