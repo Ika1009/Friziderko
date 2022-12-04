@@ -6,14 +6,25 @@
     xmlns:views="clr-namespace:Friziderko.View"
     Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
+    <FlyoutItem Title="Home" Icon="home_icon.png">
+        
+        <ShellContent
+        Title="Frizider"
         ContentTemplate="{DataTemplate views:FriziderPage}"
         Route="FriziderPage" />
+
+        <ShellContent Title="Recepti"
+        ContentTemplate="{DataTemplate views:ReceptiPage}"
+        Route="ReceptiPage" />
+        
+    </FlyoutItem>
+    
+
     <ShellContent
         Title="Moj profil"
         ContentTemplate="{DataTemplate views:MojProfilPage}"
-        Route="MojProfilPage" />
+        Route="MojProfilPage" 
+        Icon="my_profile_icon.png"/>
     <ShellContent
         Title="O nama"
         Icon="about_us_icon.png"
