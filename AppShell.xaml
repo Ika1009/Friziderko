@@ -7,16 +7,28 @@
     Shell.FlyoutBehavior="Flyout">
 
     <FlyoutItem Title="Home" Icon="home_icon.png">
-        
-        <ShellContent
-        Title="Frizider"
-        ContentTemplate="{DataTemplate views:FriziderPage}"
-        Route="FriziderPage" />
 
-        <ShellContent Title="Recepti"
-        ContentTemplate="{DataTemplate views:ReceptiPage}"
-        Route="ReceptiPage" />
-        
+        <Tab Title="Moj Frižider">
+            <ShellContent 
+            ContentTemplate="{DataTemplate views:FriziderPage}"
+            Route="FriyiderPage" />
+        </Tab>
+
+        <Tab Title="Recepti">
+            <ShellContent Title="Moji Recepti"
+            ContentTemplate="{DataTemplate views:ReceptiPage}"
+            Route="ReceptiPage" />
+            <ShellContent Title="Preporuceni Recepti"
+            ContentTemplate="{DataTemplate views:PreporuceniReceptiPage}"
+            Route="PreporuceniReceptiPage" />
+        </Tab>
+
+        <Tab Title="Kupovna lista">
+            <ShellContent 
+            ContentTemplate="{DataTemplate views:ShoppingListaPage}"
+            Route="ShoppingListPage" />
+        </Tab>
+
     </FlyoutItem>
     
 
