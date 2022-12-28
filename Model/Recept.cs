@@ -7,14 +7,14 @@ using SQLite;
 
 namespace Friziderko.Model
 {
-    public struct Podatak
-    {
-        public Namirnica namirnica;
-        public int kolicina;
-    }
     [Table("Recept")]
     public class Recept
     {
+        public struct Podatak
+        {
+            public Namirnica namirnica;
+            public int kolicina;
+        }
         public Recept(int id, string naziv, string opis, List<Podatak> podaci)
         {
             Id = id;
