@@ -15,8 +15,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-        string dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3");//FileAccessHelper.GetLocalFilePath("people.db3");
-        builder.Services.AddSingleton<DodajUBazu>(s => ActivatorUtilities.CreateInstance<DodajUBazu>(s, dbPath));
+        //string dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3");//FileAccessHelper.GetLocalFilePath("people.db3");
+        //builder.Services.AddSingleton<DodajUBazu>(s => ActivatorUtilities.CreateInstance<DodajUBazu>(s, dbPath));
 
         return builder.Build();
 	}
