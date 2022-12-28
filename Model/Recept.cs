@@ -15,6 +15,10 @@ namespace Friziderko.Model
     [Table("Recept")]
     public class Recept
     {
+        public Recept()
+        {
+
+        }
         public Recept(int id, string naziv, string opis, List<Podatak> podaci)
         {
             Id = id;
