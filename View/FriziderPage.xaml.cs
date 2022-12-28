@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using Friziderko.Model;
 using Friziderko.ViewModel;
 
@@ -11,4 +12,10 @@ public partial class FriziderPage : ContentPage
 		InitializeComponent();
 		///dodajUBazu = new DodajUBazu(System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3"));
     }
+
+    private void DodajNamirnicu(object sender, EventArgs e)
+    {
+        this.ShowPopup(new DodajNamirnicePopup());
+    }
+
 }

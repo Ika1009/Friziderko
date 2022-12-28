@@ -1,4 +1,5 @@
-﻿using Friziderko.ViewModel;
+﻿using CommunityToolkit.Maui;
+using Friziderko.ViewModel;
 
 namespace Friziderko;
 
@@ -8,6 +9,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+			.UseMauiCommunityToolkit()
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{

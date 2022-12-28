@@ -14,12 +14,6 @@
             Route="FriziderPage" />
         </Tab>
 
-        <Tab Title="+">
-            <ShellContent 
-            ContentTemplate="{DataTemplate views:FriziderPage}"
-            Route="FriziderPage" />
-        </Tab>
-
         <Tab Title="Recepti">
             <ShellContent Title="Moji Recepti"
             ContentTemplate="{DataTemplate views:ReceptiPage}"

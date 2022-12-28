@@ -4,6 +4,10 @@
              x:Class="Friziderko.View.ReceptiPage"
              Title="ReceptiPage">
     <VerticalStackLayout>
+        <Button Text="+"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Clicked="DodajRecept"/>
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 

@@ -4,6 +4,12 @@
              x:Class="Friziderko.View.FriziderPage"
              Title="FriziderPage">
     <VerticalStackLayout>
+        <Button 
+            Text="+"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Clicked="DodajNamirnicu"
+            />
         <Label 
             Text="dzomba gola kurcina"
             VerticalOptions="Center" 
