@@ -26,7 +26,7 @@ namespace Friziderko.ViewModel
             if (conn != null)
                 return;
             conn = new SQLiteAsyncConnection(dbPath);
-            //conn.CreateTable<Namirnice>(); da se stavi za recept kad se napravi klasa
+            conn.CreateTableAsync<Recept>(); 
         }
         public void DodajNamirnicu(Namirnica namirnica)
         {
@@ -39,6 +39,25 @@ namespace Friziderko.ViewModel
                     throw new Exception("Nepostojeca namirnica");
 
                 conn.InsertAsync(namirnica); // ubacuje u bazu
+
+                //StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
+            }
+            catch (Exception ex)
+            {
+                //StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
+            }
+        }
+        public void DodajRecept(Recept recept)
+        {
+            try
+            {
+                InitNamirnica();
+
+                // basic validation to ensure a namirnica is entered
+                if (recept is null)
+                    throw new Exception("Nepostojeći recept");
+
+                conn.InsertAsync(recept); // ubacuje u bazu
 
                 //StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
             }
@@ -60,6 +79,20 @@ namespace Friziderko.ViewModel
             }
 
             return new List<Namirnica>();
+        }
+        public async Task<List<Recept>> GetAllReceptiAsync()
+        {
+            try
+            {
+                InitNamirnica();
+                return await conn.Table<Recept>().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                //StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new List<Recept>();
         }
 
     }
