@@ -1,4 +1,6 @@
-﻿namespace Friziderko;
+﻿using Friziderko.ViewModel;
+
+namespace Friziderko;
 
 public static class MauiProgram
 {
@@ -13,6 +15,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+        string dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3");//FileAccessHelper.GetLocalFilePath("people.db3");
+        builder.Services.AddSingleton<DodajUBazu>(s => ActivatorUtilities.CreateInstance<DodajUBazu>(s, dbPath));
+
+        return builder.Build();
 	}
 }
