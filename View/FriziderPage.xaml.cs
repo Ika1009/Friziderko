@@ -9,6 +9,6 @@ public partial class FriziderPage : ContentPage
     public FriziderPage()
 	{
 		InitializeComponent();
-		//dodajUBazu = new DodajUBazu(System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3"));
+		///dodajUBazu = new DodajUBazu(System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3"));
     }
 }
