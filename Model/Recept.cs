@@ -10,6 +10,7 @@ namespace Friziderko.Model
     [Table("Recept")]
     public class Recept
     {
+        public Recept() { }
         public struct Podatak
         {
             public Namirnica namirnica;

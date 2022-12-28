@@ -11,7 +11,13 @@
         <Tab Title="Moj Frižider">
             <ShellContent 
             ContentTemplate="{DataTemplate views:FriziderPage}"
-            Route="FriyiderPage" />
+            Route="FriziderPage" />
+        </Tab>
+
+        <Tab Title="+">
+            <ShellContent 
+            ContentTemplate="{DataTemplate views:FriziderPage}"
+            Route="FriziderPage" />
         </Tab>
 
         <Tab Title="Recepti">
