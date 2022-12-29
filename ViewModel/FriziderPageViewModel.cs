@@ -24,13 +24,15 @@ namespace Friziderko.ViewModel
         public FriziderPageViewModel(BazaPristupServis dbService) 
         {
             bazaPristupServis = dbService; 
-            title = "Frižider";
+            Title = "Frižider";
         }
 
         //pretvara u komandu da bi moglo da se pozove iz view
         [RelayCommand]
+        //treba da se pozove pri startapu aplikacije
         public async Task GetNamirniceAsync() // samo uzima namirnice iz baze
         {
+
             if (isBusy)
                 return;
             try

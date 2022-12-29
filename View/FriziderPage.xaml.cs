@@ -6,11 +6,9 @@ namespace Friziderko.View;
 
 public partial class FriziderPage : ContentPage
 {
-	//DodajUBazu dodajUBazu;
     public FriziderPage(FriziderPageViewModel vm)
 	{
 		InitializeComponent();
-        //dodajUBazu = new DodajUBazu(System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3"));
         BindingContext = vm;
     }
 
