@@ -2,22 +2,56 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Friziderko.ViewModel"
+             xmlns:model="clr-namespace:Friziderko.Model"
+             x:DataType="viewmodel:FriziderPageViewModel"
              x:Class="Friziderko.View.FriziderPage"
              Title="{Binding Title}">
-    <VerticalStackLayout>
+    <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="5"
+              RowDefinitions="*, Auto"
+              RowSpacing="0">
+            <CollectionView BackgroundColor="Transparent"
+                            Grid.ColumnSpan="2"
+                            ItemsSource="{Binding Kolekcija_namirnica}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Namirnica">
+                        <Grid Padding="10">
+                            <Frame HeightRequest="125">
+                                <Label Text="{Binding Naziv}"/>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        <Button Text="Pokazi sve"
+                Grid.Row="1"
+                Margin="8"
+                Command="{Binding GetNamirniceCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                />
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+
         <Button 
-            Text="+"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
+            Text="Dodaj Namirnicu"
             Clicked="DodajNamirnicu"
-            />
-        <Label 
-            Text="dodaj artikal"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <ScrollView>
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="8"/>
+        
+    </Grid>
+        <!--<ScrollView>
             <VerticalStackLayout>
                 <CollectionView x:Name="ListaNamirnica">
+                    <CollectionView.ItemsSource >
+                        
+                    </CollectionView.ItemsSource>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -30,13 +64,15 @@
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding }"/>
+                                <Label Grid.Column="0" Text="{Binding Kolicina}"/>
+                                <Label Grid.Column="0" Text="{Binding Naziv}"/>
+                                <Label Grid.Column="0" Text="{Binding Opis}"/>
+                                <Label Grid.Column="0" Text="{Binding Put_slika}"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </VerticalStackLayout>
-        </ScrollView>
-    </VerticalStackLayout>
+        </ScrollView>-->
 
 </ContentPage>

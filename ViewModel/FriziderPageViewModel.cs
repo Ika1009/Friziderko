@@ -17,7 +17,16 @@ namespace Friziderko.ViewModel
         [ObservableProperty]
         string title;
 
-        bool isBusy = false;
+        bool isBusy = false, isNotBusy = true;
+
+		public bool IsNotBusy
+		{
+			get => isNotBusy; set => isNotBusy = value;
+		}
+		public bool IsBusy
+        {
+            get => isBusy; set => isBusy = value;
+        }
 
         [ObservableProperty]
         ObservableCollection<Namirnica> kolekcija_namirnica;
@@ -37,9 +46,10 @@ namespace Friziderko.ViewModel
                 return;
             try
             {
+                isNotBusy = false;
                 isBusy = true;
 
-                if (kolekcija_namirnica.Count != 0)
+                if (kolekcija_namirnica != null && kolekcija_namirnica.Count != 0)
                     kolekcija_namirnica.Clear();
 
                 var namirnice = await bazaPristupServis.GetAllNamirniceAsync();
@@ -51,7 +61,7 @@ namespace Friziderko.ViewModel
             catch (Exception ex) {
                 await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
             }
-            finally { isBusy = false; }
+            finally { isBusy = false; isNotBusy = true; }
         }
         
 

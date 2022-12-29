@@ -4,9 +4,19 @@
             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui" 
             x:Class="Friziderko.View.DodajNamirnicePopup">
     <VerticalStackLayout>
-        <Label 
-            Text="dodaj namirnicu"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <HorizontalStackLayout>
+            <Entry Placeholder="Napisite Naziv Namirnice" x:Name="Nazivcina"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Entry Placeholder="Napisite Opis Namirnice" x:Name="Opiscina"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Entry x:Name="Kolicincina"/>
+        </HorizontalStackLayout>
+        
+        <Button Text="Dodaj"
+                Clicked="DodajElement"/>
     </VerticalStackLayout>
 </mct:Popup>

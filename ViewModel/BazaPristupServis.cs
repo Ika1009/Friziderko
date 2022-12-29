@@ -71,6 +71,8 @@ namespace Friziderko.ViewModel
             try
             {
                 InitNamirnica();
+                if (conn.Table<Namirnica>().ToListAsync() is null)
+                    throw new Exception("Ne postoji ni jedna namirnica u frizideru!");
                 return await conn.Table<Namirnica>().ToListAsync();
             }
             catch (Exception ex)
@@ -85,7 +87,9 @@ namespace Friziderko.ViewModel
             try
             {
                 InitNamirnica();
-                return await conn.Table<Recept>().ToListAsync();
+				if (conn.Table<Namirnica>() is null)
+					throw new Exception("Ne postoji ni jedna namirnica u frizideru!");
+				return await conn.Table<Recept>().ToListAsync();
             }
             catch (Exception ex)
             {

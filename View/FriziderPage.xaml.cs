@@ -1,6 +1,7 @@
 using CommunityToolkit.Maui.Views;
 using Friziderko.Model;
 using Friziderko.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace Friziderko.View;
 
@@ -10,11 +11,12 @@ public partial class FriziderPage : ContentPage
 	{
 		InitializeComponent();
         BindingContext = vm;
-    }
+	}
 
     private void DodajNamirnicu(object sender, EventArgs e)
     {
         this.ShowPopup(new DodajNamirnicePopup());
+
     }
 
 }
