@@ -7,10 +7,11 @@ namespace Friziderko.View;
 public partial class FriziderPage : ContentPage
 {
 	//DodajUBazu dodajUBazu;
-    public FriziderPage()
+    public FriziderPage(FriziderPageViewModel vm)
 	{
 		InitializeComponent();
-		///dodajUBazu = new DodajUBazu(System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3"));
+        //dodajUBazu = new DodajUBazu(System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka3"));
+        BindingContext = vm;
     }
 
     private void DodajNamirnicu(object sender, EventArgs e)

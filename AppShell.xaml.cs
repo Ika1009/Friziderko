@@ -1,4 +1,6 @@
-﻿namespace Friziderko;
+﻿using Friziderko.View;
+
+namespace Friziderko;
 
 public partial class AppShell : Shell
 {

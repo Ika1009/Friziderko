@@ -8,11 +8,11 @@ using Friziderko.Model;
 
 namespace Friziderko.ViewModel
 {
-    public class DodajUBazu
+    public class BazaPristupServis
     {
         private SQLiteAsyncConnection conn;
-        private string dbPath;
-        public DodajUBazu(string _dbPath) { dbPath = _dbPath; } // constructor da poveze put
+        private readonly string dbPath;
+        public BazaPristupServis() { dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka.db3"); } // constructor da poveze put
 
         public void InitNamirnica()
         {
