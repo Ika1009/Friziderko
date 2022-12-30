@@ -4,11 +4,13 @@ using Friziderko.ViewModel;
 
 namespace Friziderko.View;
 
-public partial class DodajNamirnicePopup : Popup
-{ 
-	public DodajNamirnicePopup()
+public partial class NamirnicePopup : Popup
+{
+
+	public NamirnicePopup(NamirnicePopupViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 
 }

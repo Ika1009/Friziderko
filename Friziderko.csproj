@@ -56,10 +56,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\DodajNamirnicePopup.xaml">
+	  <MauiXaml Update="View\NamirnicePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\DodajReceptPopup.xaml">
+	  <MauiXaml Update="View\ReceptPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\FriziderPage.xaml">
@@ -87,8 +87,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="View\DodajNamirnicePopup.xaml.cs">
-	    <DependentUpon>DodajNamirnicePopup.xaml</DependentUpon>
+	  <Compile Update="View\ReceptPopup.xaml.cs">
+	    <DependentUpon>ReceptPopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\NamirnicePopup.xaml.cs">
+	    <DependentUpon>NamirnicePopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

@@ -15,7 +15,7 @@ public partial class FriziderPage : ContentPage
 
     private void DodajNamirnicu(object sender, EventArgs e)
     {
-        this.ShowPopup(new DodajNamirnicePopup());
+        this.ShowPopup(new NamirnicePopup());
 
     }
 
