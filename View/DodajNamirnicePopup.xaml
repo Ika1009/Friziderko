@@ -5,18 +5,19 @@
             x:Class="Friziderko.View.DodajNamirnicePopup">
     <VerticalStackLayout>
         <HorizontalStackLayout>
-            <Entry Placeholder="Napisite Naziv Namirnice" x:Name="Nazivcina"/>
+            <Entry Placeholder="Unesite Naziv Namirnice" x:Name="Nazivcina"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>
-            <Entry Placeholder="Napisite Opis Namirnice" x:Name="Opiscina"/>
+            <Entry Placeholder="Unesite Opis Namirnice" x:Name="Opiscina"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>
-            <Entry x:Name="Kolicincina"/>
+            <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="Kolicincina"/>
         </HorizontalStackLayout>
         
         <Button Text="Dodaj"
-                Clicked="DodajElement"/>
+                
+                />
     </VerticalStackLayout>
 </mct:Popup>
