@@ -14,14 +14,14 @@ namespace Friziderko.ViewModel
         private readonly string dbPath;
         public BazaPristupServis() { dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka.db3"); } // constructor da poveze put
 
-        public void InitNamirnica()
+        private void InitNamirnica()
         {
             if (conn != null)
                 return;
             conn = new SQLiteAsyncConnection(dbPath);
             conn.CreateTableAsync<Namirnica>();
         }
-        public void InitRecept()
+        private void InitRecept()
         {
             if (conn != null)
                 return;
