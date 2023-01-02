@@ -17,7 +17,7 @@
             <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="KolicinaEntry" Keyboard="Numeric"/>
         </HorizontalStackLayout>
 
-        <Button Text="Dodaj" Clicked="DodajNamirnicu"/>
+        <Button Text="Dodaj" BindingContext="{Binding a}"  Clicked="DodajNamirnicu"/>
         
     </VerticalStackLayout>
 </mct:Popup>

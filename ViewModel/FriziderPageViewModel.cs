@@ -63,9 +63,28 @@ namespace Friziderko.ViewModel
             }
             finally { isBusy = false; isNotBusy = true; }
         }
-        
 
+        [RelayCommand]
+		public async Task DodajNamirnicuAsync(Namirnica namirnica)
+		{
 
-        
-    }
+			if (isBusy)
+				return;
+			try
+			{
+				isNotBusy = false;
+				isBusy = true;
+
+                bazaPristupServis.DodajNamirnicu(namirnica);
+                
+
+			}
+			catch (Exception ex)
+			{
+				await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
+			}
+			finally { isBusy = false; isNotBusy = true; }
+		}
+
+	}
 }

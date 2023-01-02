@@ -7,12 +7,12 @@ namespace Friziderko.View;
 
 public partial class NamirnicePopup : Popup
 {
-	BazaPristupServis bazaPristupServis;
-
-    public NamirnicePopup(BazaPristupServis dbService, FriziderPageViewModel vm)
+    FriziderPageViewModel friziderPageViewModel;
+    public NamirnicePopup(FriziderPageViewModel vm)
 	{
 		InitializeComponent();
-        bazaPristupServis = dbService;
+        friziderPageViewModel = vm;
+        //Namirnica promena_teksta = new Namirnica();
 	}
 
 
@@ -27,11 +27,9 @@ public partial class NamirnicePopup : Popup
             return;
         }
 
-        string status = bazaPristupServis.DodajNamirnicu(new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "Za sad nema"));
+        Namirnica namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "Za sad nema");
 
-		
-        if (status != "success")
-            await Shell.Current.DisplayAlert("Greška", "Došlo je do greške: " + status, "OK");
+        await friziderPageViewModel.DodajNamirnicuAsync(namirnica);
 
 
     }
