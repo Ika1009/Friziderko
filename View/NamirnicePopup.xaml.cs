@@ -44,7 +44,10 @@ public partial class NamirnicePopup : Popup
             return;
         }
 
-        bazaPristupServis.DodajNamirnicu(new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "Za sad nema"));
+        string status = bazaPristupServis.DodajNamirnicu(new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "Za sad nema"));
+
+        if (status != "success")
+            await Shell.Current.DisplayAlert("Greška", "Došlo je do greške: " + status, "OK");
 
         this.Close();
 

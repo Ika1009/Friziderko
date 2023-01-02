@@ -28,8 +28,9 @@ namespace Friziderko.ViewModel
             conn = new SQLiteAsyncConnection(dbPath);
             conn.CreateTableAsync<Recept>(); 
         }
-        public void DodajNamirnicu(Namirnica namirnica)
+        public string DodajNamirnicu(Namirnica namirnica)
         {
+            string statusMessage;
             try
             {
                 InitNamirnica();
@@ -40,12 +41,13 @@ namespace Friziderko.ViewModel
 
                 conn.InsertAsync(namirnica); // ubacuje u bazu
 
-                //StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
+                statusMessage = "success";
             }
             catch (Exception ex)
             {
-                //StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
+                statusMessage = ex.Message;
             }
+            return statusMessage;
         }
         public void DodajRecept(Recept recept)
         {
