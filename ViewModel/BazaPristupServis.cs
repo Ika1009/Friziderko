@@ -49,11 +49,29 @@ namespace Friziderko.ViewModel
             }
             return statusMessage;
         }
-        public void DodajRecept(Recept recept)
+		public string ObrisiNamirnicu(int id)
+		{
+			string statusMessage;
+			try
+			{
+				InitNamirnica();
+
+
+				conn.DeleteAsync(new Namirnica { Id = id}); // brise iz baze
+
+				statusMessage = "success";
+			}
+			catch (Exception ex)
+			{
+				statusMessage = ex.Message;
+			}
+			return statusMessage;
+		}
+		public void DodajRecept(Recept recept)
         {
             try
             {
-                InitNamirnica();
+				InitRecept();
 
                 // basic validation to ensure a namirnica is entered
                 if (recept is null)
@@ -88,7 +106,7 @@ namespace Friziderko.ViewModel
         {
             try
             {
-                InitNamirnica();
+                InitRecept();
 				if (conn.Table<Namirnica>() is null)
 					throw new Exception("Ne postoji ni jedna namirnica u frizideru!");
 				return await conn.Table<Recept>().ToListAsync();
