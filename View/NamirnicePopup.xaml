@@ -6,15 +6,15 @@
             x:Class="Friziderko.View.NamirnicePopup">
     <VerticalStackLayout>
         <HorizontalStackLayout>
-            <Entry Placeholder="Unesite Naziv Namirnice" x:Name="Nazivcina" TextChanged="Nazivcina_PromenaTeksta"/>
+            <Entry Placeholder="Unesite Naziv Namirnice" x:Name="NazivEntry"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>
-            <Entry Placeholder="Unesite Opis Namirnice" x:Name="Opiscina" TextChanged="Opiscina_PromenaTeksta"/>
+            <Entry Placeholder="Unesite Opis Namirnice" x:Name="OpisEntry"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout>
-            <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="Kolicincina" TextChanged="Kolicincina_PromenaTeksta" Keyboard="Numeric"/>
+            <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="KolicinaEntry" Keyboard="Numeric"/>
         </HorizontalStackLayout>
 
         <Button Text="Dodaj" Clicked="DodajNamirnicu"/>
