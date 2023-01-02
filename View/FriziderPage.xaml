@@ -20,7 +20,7 @@
                                Padding="0">
                         <Grid Padding="0"
                               ColumnDefinitions="125, *">
-                            <Button Text="Obrisi me" Clicked="Brisanje" BindingContext="{Binding Id}"/>
+                            <!--<Button Text="Obrisi me(ne radi)" BindingContext="{Binding Id}"/>-->
                             <Label Text="{Binding Kolicina}" VerticalOptions="Center"/>
                             <Image Aspect="AspectFill"
                                Source="{Binding Put_slika}"

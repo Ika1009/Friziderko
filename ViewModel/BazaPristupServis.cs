@@ -49,24 +49,6 @@ namespace Friziderko.ViewModel
             }
             return statusMessage;
         }
-		public string ObrisiNamirnicu(int id)
-		{
-			string statusMessage;
-			try
-			{
-				InitNamirnica();
-
-
-				conn.DeleteAsync(new Namirnica { Id = id}); // brise iz baze
-
-				statusMessage = "success";
-			}
-			catch (Exception ex)
-			{
-				statusMessage = ex.Message;
-			}
-			return statusMessage;
-		}
 		public void DodajRecept(Recept recept)
         {
             try
