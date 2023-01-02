@@ -29,7 +29,7 @@ namespace Friziderko.ViewModel
         }
 
         [ObservableProperty]
-        ObservableCollection<Namirnica> kolekcija_namirnica;
+        ObservableCollection<Namirnica> kolekcija_namirnica = new();
         public FriziderPageViewModel(BazaPristupServis dbService) 
         {
             bazaPristupServis = dbService; 
