@@ -28,6 +28,7 @@ namespace Friziderko.ViewModel
             get => isBusy; set => isBusy = value;
         }
 
+        List<Namirnica> lista_namirnica = new();
         [ObservableProperty]
         ObservableCollection<Namirnica> kolekcija_namirnica = new();
         public FriziderPageViewModel(BazaPristupServis dbService) 
@@ -52,9 +53,9 @@ namespace Friziderko.ViewModel
                 if (kolekcija_namirnica != null && kolekcija_namirnica.Count != 0)
                     kolekcija_namirnica.Clear();
 
-                var namirnice = await bazaPristupServis.GetAllNamirniceAsync();
+                lista_namirnica = await bazaPristupServis.GetAllNamirniceAsync();
 
-                foreach (Namirnica namirnica in namirnice)
+                foreach (Namirnica namirnica in lista_namirnica)
                     kolekcija_namirnica.Add(namirnica);
 
             }
@@ -86,9 +87,11 @@ namespace Friziderko.ViewModel
 			finally { isBusy = false; isNotBusy = true; }
 		}
 
-        public void ObrisiNamirnicu(int Id)
+        public void ObrisiNamirnicu(int id)
         {
-            bazaPristupServis.ObrisiNamirnicu(Id);
+            Namirnica namirnicaZaBrisanje = lista_namirnica.Where(x => x.Id == id).First();
+            kolekcija_namirnica.Remove(namirnicaZaBrisanje);
+            bazaPristupServis.ObrisiNamirnicu(namirnicaZaBrisanje);
         }
 
 	}

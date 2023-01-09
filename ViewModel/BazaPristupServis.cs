@@ -100,11 +100,11 @@ namespace Friziderko.ViewModel
 
             return new List<Recept>();
         }
-        public void ObrisiNamirnicu(int Id)
+        public void ObrisiNamirnicu(Namirnica namirnica)
         {
             InitNamirnica();
 
-            conn.DeleteAsync(Id);
+            conn.DeleteAsync(namirnica);
         }
     }
 }

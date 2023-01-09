@@ -25,8 +25,6 @@ public partial class FriziderPage : ContentPage
         Button button = (Button)sender;
 
         vmm.ObrisiNamirnicu((int)button.BindingContext);
-        
-        button.Text = button.BindingContext.ToString();
     }
 
 }
