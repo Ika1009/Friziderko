@@ -42,7 +42,6 @@ namespace Friziderko.ViewModel
         //treba da se pozove pri startapu aplikacije
         public async Task GetNamirniceAsync() // samo uzima namirnice iz baze
         {
-
             if (isBusy)
                 return;
             try
@@ -57,7 +56,6 @@ namespace Friziderko.ViewModel
 
                 foreach (Namirnica namirnica in lista_namirnica)
                     kolekcija_namirnica.Add(namirnica);
-
             }
             catch (Exception ex) {
                 await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
@@ -68,7 +66,6 @@ namespace Friziderko.ViewModel
         [RelayCommand]
 		public async Task DodajNamirnicuAsync(Namirnica namirnica)
 		{
-
 			if (isBusy)
 				return;
 			try
@@ -76,9 +73,7 @@ namespace Friziderko.ViewModel
 				isNotBusy = false;
 				isBusy = true;
 
-                bazaPristupServis.DodajNamirnicu(namirnica);
-                
-
+                bazaPristupServis.DodajNamirnicu(namirnica);              
 			}
 			catch (Exception ex)
 			{

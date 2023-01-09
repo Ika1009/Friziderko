@@ -32,6 +32,5 @@ namespace Friziderko.Model
         public string Opis { get; set; }
         public int Kolicina { get; set; }
         public string Put_slika { get; set; }
-
     }
 }
