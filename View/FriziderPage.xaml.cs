@@ -7,18 +7,26 @@ namespace Friziderko.View;
 
 public partial class FriziderPage : ContentPage
 {
-    NamirnicePopup popup;
-    public FriziderPage(FriziderPageViewModel vm, NamirnicePopup np)
+    FriziderPageViewModel vmm;
+    public FriziderPage(FriziderPageViewModel vm)
 	{
 		InitializeComponent();
         BindingContext = vm;
-        popup = np;
+        vmm = vm;
 	}
 
     private void DodajNamirnicu(object sender, EventArgs e)
     {
-        this.ShowPopup(popup);
+        this.ShowPopup(new NamirnicePopup(vmm));
 
+    }
+    private void Obrisi(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+
+        vmm.ObrisiNamirnicu((int)button.BindingContext);
+        
+        button.Text = button.BindingContext.ToString();
     }
 
 }

@@ -86,5 +86,10 @@ namespace Friziderko.ViewModel
 			finally { isBusy = false; isNotBusy = true; }
 		}
 
+        public void ObrisiNamirnicu(int Id)
+        {
+            bazaPristupServis.ObrisiNamirnicu(Id);
+        }
+
 	}
 }

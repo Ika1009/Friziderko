@@ -3,7 +3,8 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui" 
-            x:Class="Friziderko.View.NamirnicePopup">
+            x:Class="Friziderko.View.NamirnicePopup"
+            CanBeDismissedByTappingOutsideOfPopup="False">
     <VerticalStackLayout>
         <HorizontalStackLayout>
             <Entry Placeholder="Unesite Naziv Namirnice" x:Name="NazivEntry"/>
@@ -17,7 +18,9 @@
             <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="KolicinaEntry" Keyboard="Numeric"/>
         </HorizontalStackLayout>
 
-        <Button Text="Dodaj" BindingContext="{Binding a}"  Clicked="DodajNamirnicu"/>
-        
+        <Button Text="Dodaj" Clicked="DodajNamirnicu"/>
+
+        <Button Text="Izadji" Clicked="Izadji"/>
+
     </VerticalStackLayout>
 </mct:Popup>

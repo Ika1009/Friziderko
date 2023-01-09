@@ -20,7 +20,7 @@
                                Padding="0">
                         <Grid Padding="0"
                               ColumnDefinitions="125, *">
-                            <!--<Button Text="Obrisi me(ne radi)" BindingContext="{Binding Id}"/>-->
+                            <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"/>
                             <Label Text="{Binding Kolicina}" VerticalOptions="Center"/>
                             <Image Aspect="AspectFill"
                                Source="{Binding Put_slika}"
@@ -41,16 +41,15 @@
             
         <Button Text="Pokazi sve"
                 Grid.Row="1"
-                Margin="8"
+                Margin="8"               
                 Command="{Binding GetNamirniceCommand}"
-                IsEnabled="{Binding IsNotBusy}"
                 />
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
+        <!--<ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Center"
                            Grid.RowSpan="2"
-                           Grid.ColumnSpan="2"/>
+                           Grid.ColumnSpan="2"/>-->
 
         <Button 
             Text="Dodaj Namirnicu"

@@ -33,4 +33,8 @@ public partial class NamirnicePopup : Popup
 
 
     }
+    private void Izadji(object sender, EventArgs e)
+    {
+        this.Close();
+    }
 }
