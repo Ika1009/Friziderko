@@ -4,7 +4,7 @@
             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui" 
             x:Class="Friziderko.View.NamirnicePopup"
-            CanBeDismissedByTappingOutsideOfPopup="True">
+            CanBeDismissedByTappingOutsideOfPopup="False">
     <VerticalStackLayout>
         <HorizontalStackLayout>
             <Entry Placeholder="Unesite Naziv Namirnice" x:Name="NazivEntry"/>
@@ -21,6 +21,10 @@
         <Button Text="Dodaj" Clicked="DodajNamirnicu"/>
 
         <Button Text="Izadji" Clicked="Izadji"/>
+
+        <Button Text="Dodaj Slicku" Clicked="DodajSliku"/>
+
+        <!--<Image x:Name="Slika"/>-->
 
     </VerticalStackLayout>
 </mct:Popup>
