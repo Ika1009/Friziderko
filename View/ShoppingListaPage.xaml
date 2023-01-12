@@ -18,7 +18,7 @@
                            MaximumWidthRequest="1000"
                                Padding="0">
                         <Grid Padding="10"
-                              ColumnDefinitions="200, Auto">
+                              ColumnDefinitions="200, *">
                             <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
                                     HeightRequest="50"
                                     WidthRequest="100"/>
