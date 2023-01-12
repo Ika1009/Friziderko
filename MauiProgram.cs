@@ -21,6 +21,10 @@ public static class MauiProgram
 		//string dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka.db3");//FileAccessHelper.GetLocalFilePath("people.db3");
 		//builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<DodajUBazu>(s, dbPath));
 
+		builder.Services.AddSingleton<ShoppingListaPageViewModel>();
+
+		builder.Services.AddSingleton<ShoppingListaPage>();
+
 		builder.Services.AddSingleton<NamirnicePopup>();
 
 		builder.Services.AddSingleton<BazaPristupServis>();
