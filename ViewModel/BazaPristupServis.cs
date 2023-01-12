@@ -14,6 +14,13 @@ namespace Friziderko.ViewModel
         private readonly string dbPath;
         public BazaPristupServis() { dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka.db3"); } // constructor da poveze put
 
+        private void InitArtikal()
+        {
+            if (conn != null)
+                return;
+            conn = new SQLiteAsyncConnection(dbPath);
+            conn.CreateTableAsync<Artikal>();
+        }
         private void InitNamirnica()
         {
             if (conn != null)
@@ -28,7 +35,28 @@ namespace Friziderko.ViewModel
             conn = new SQLiteAsyncConnection(dbPath);
             conn.CreateTableAsync<Recept>(); 
         }
-        public string DodajNamirnicu(Namirnica namirnica)
+		public string DodajArtikal(Artikal artikal)
+		{
+			string statusMessage;
+			try
+			{
+				InitNamirnica();
+
+				// basic validation to ensure a namirnica is entered
+				if (artikal is null)
+					throw new Exception("Nepostojeca namirnica");
+
+				conn.InsertAsync(artikal); // ubacuje u bazu
+
+				statusMessage = "success";
+			}
+			catch (Exception ex)
+			{
+				statusMessage = ex.Message;
+			}
+			return statusMessage;
+		}
+		public string DodajNamirnicu(Namirnica namirnica)
         {
             string statusMessage;
             try
@@ -68,7 +96,23 @@ namespace Friziderko.ViewModel
                 //StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
             }
         }
-        public async Task<List<Namirnica>> GetAllNamirniceAsync()
+		public async Task<List<Artikal>> GetAllArtikalsAsync()
+		{
+			try
+			{
+				InitArtikal();
+				if (conn.Table<Artikal>().ToListAsync() is null)
+					throw new Exception("Ne postoji ni jedna Artikal u Shopping Listi!");
+				return await conn.Table<Artikal>().ToListAsync();
+			}
+			catch (Exception ex)
+			{
+				//StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+			}
+
+			return new List<Artikal>();
+		}
+		public async Task<List<Namirnica>> GetAllNamirniceAsync()
         {
             try
             {
@@ -100,7 +144,13 @@ namespace Friziderko.ViewModel
 
             return new List<Recept>();
         }
-        public void ObrisiNamirnicu(Namirnica namirnica)
+		public void ObrisiArtikal(Artikal artikal)
+		{
+			InitArtikal();
+
+			conn.DeleteAsync(artikal);
+		}
+		public void ObrisiNamirnicu(Namirnica namirnica)
         {
             InitNamirnica();
 

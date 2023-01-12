@@ -13,6 +13,7 @@ public partial class NamirnicePopup : Popup
     public NamirnicePopup(FriziderPageViewModel vm)
     {
         InitializeComponent();
+        BindingContext= vm;
         friziderPageViewModel = vm;
     }
 
