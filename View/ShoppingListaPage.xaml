@@ -35,11 +35,7 @@
         <HorizontalStackLayout>
             <Entry Placeholder="Dodaj" x:Name="DodajEntry" Completed="DodajArtikal"/>
         </HorizontalStackLayout>
-
-        <Button Text="Pokazi sve"
-                Grid.Row="1"
-                Margin="8"               
-                Command="{Binding GetArtikleCommand}"
-                />
+        
+        <!--NE DZARAJ COMPLETED-->
     </VerticalStackLayout>
 </ContentPage>

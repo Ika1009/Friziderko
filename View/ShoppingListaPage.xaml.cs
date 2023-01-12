@@ -30,6 +30,8 @@ public partial class ShoppingListaPage : ContentPage
 
 		DodajEntry.Text = "";
 
+		await shoppingListaPageViewModel.GetArtikleAsync(); // update jer je dodat artikal
+
 	}
 	private void Obrisi(object sender, EventArgs e)
 	{
