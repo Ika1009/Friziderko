@@ -17,7 +17,7 @@
                            MaximumWidthRequest="1000"
                                Padding="0">
                         <Grid Padding="10"
-                              ColumnDefinitions="200, Auto">
+                              ColumnDefinitions="200, *">
                             <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
                                     HeightRequest="50"
                                     WidthRequest="100"/>
@@ -29,10 +29,15 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
-        
-        <HorizontalStackLayout>
-            <Entry Placeholder="Dodaj" x:Name="DodajEntry"/>
+
+
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Padding="10">
+            <Entry Placeholder="Dodaj" x:Name="DodajEntry"
+                   WidthRequest="965"
+                   VerticalOptions="Center"
+                   HeightRequest="40"
+                   />
             <Button Text="+" Clicked="DodajArtikal"/>
         </HorizontalStackLayout>
 
