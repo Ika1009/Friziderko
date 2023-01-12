@@ -7,24 +7,28 @@ namespace Friziderko.View;
 
 public partial class FriziderPage : ContentPage
 {
-    FriziderPageViewModel vmm;
+    FriziderPageViewModel friziderkoPageViewModel;
     public FriziderPage(FriziderPageViewModel vm)
 	{
 		InitializeComponent();
         BindingContext = vm;
-        vmm = vm;
+        friziderkoPageViewModel = vm;
 	}
 
     private void DodajNamirnicu(object sender, EventArgs e)
     {
-        this.ShowPopup(new NamirnicePopup(vmm));
+        this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel));
 
     }
     private void Obrisi(object sender, EventArgs e)
     {
         Button button = (Button)sender;
 
-        vmm.ObrisiNamirnicu((int)button.BindingContext);
+        friziderkoPageViewModel.ObrisiNamirnicu((int)button.BindingContext);
     }
-
+    private async void Ucitaj(object sender, EventArgs e)
+    {
+		//zove se funkcija koja popunjava kolekciju namirnica, koja se zatim ispisuje
+		await friziderkoPageViewModel.GetNamirniceAsync();
+    }
 }

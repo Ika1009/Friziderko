@@ -37,4 +37,9 @@ public partial class ShoppingListaPage : ContentPage
 
 		shoppingListaPageViewModel.ObrisiArtikal((int)button.BindingContext);
 	}
+	private async void Ucitaj(object sender, EventArgs e)
+	{
+		//zove se funkcija koja popunjava kolekciju artikla, koja se zatim ispisuje
+		await shoppingListaPageViewModel.GetArtikleAsync();
+	}
 }

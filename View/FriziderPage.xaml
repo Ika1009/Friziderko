@@ -5,6 +5,7 @@
              xmlns:model="clr-namespace:Friziderko.Model"
              x:DataType="viewmodel:FriziderPageViewModel"
              x:Class="Friziderko.View.FriziderPage"
+             Loaded="Ucitaj"
              Title="{Binding Title}">
     <Grid ColumnDefinitions="*,*"
               ColumnSpacing="5"
@@ -19,39 +20,39 @@
                     <Frame HeightRequest="125"
                            MaximumWidthRequest="1000"
                                Padding="0">
-                        <Grid Padding="10"
-                              ColumnDefinitions="200, Auto">
-                            <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
-                                    HeightRequest="50"
-                                    WidthRequest="100"/>
+                        <HorizontalStackLayout Padding="10">
                             <Label Text="{Binding Kolicina}" VerticalOptions="Center"/>
                             <Image Aspect="AspectFill"
                                Source="{Binding Put_slika}"
                                WidthRequest="125"
-                               HeightRequest="125"/>
+                               HeightRequest="125"
+                                   Margin="10"/>
                             <VerticalStackLayout Grid.Column="1"
                                                  Padding="10"
                                                  VerticalOptions="Center">
-                                <Grid>
-                                    <Label Text="{Binding Naziv}"/>
-                                </Grid>
-                                
-                                <Grid>
-                                    <Label Text="{Binding Opis}"/>
-                                </Grid>
+                                <Label Text="{Binding Naziv}"/>
+                                <Label Text="{Binding Opis}"/>
                             </VerticalStackLayout>
-                        </Grid>
+
+                            <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
+                                HeightRequest="50"
+                                WidthRequest="100"/>
+                            <Button Text="Promeni me" BindingContext="{Binding Id}"
+                                HeightRequest="50"
+                                WidthRequest="150"/>
+
+                        </HorizontalStackLayout>
                     </Frame>
                     
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
             
-        <Button Text="Pokazi sve"
+        <!--<Button Text="Pokazi sve"
                 Grid.Row="1"
                 Margin="8"               
                 Command="{Binding GetNamirniceCommand}"
-                />
+                />-->
         <!--<ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="FillAndExpand"
@@ -62,8 +63,10 @@
         <Button 
             Text="Dodaj Namirnicu"
             Clicked="DodajNamirnicu"
+            Grid.ColumnSpan="2"
             Grid.Row="1"
-            Grid.Column="1"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
             Margin="8"/>
         
     </Grid>

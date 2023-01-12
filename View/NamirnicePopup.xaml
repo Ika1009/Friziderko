@@ -5,24 +5,21 @@
             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui" 
             x:Class="Friziderko.View.NamirnicePopup"
             CanBeDismissedByTappingOutsideOfPopup="False">
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="10">
         <HorizontalStackLayout>
-            <Entry Placeholder="Unesite Naziv Namirnice" x:Name="NazivEntry"/>
+            <ImageButton Source="help_icon.png" Aspect="AspectFill" WidthRequest="125" HeightRequest="125" Clicked="DodajSliku" x:Name="Slika"/>
+            
+            <VerticalStackLayout>
+                <Entry Placeholder="Unesite Naziv Namirnice" x:Name="NazivEntry"/>
+                <Entry Placeholder="Unesite Opis Namirnice" x:Name="OpisEntry"/>
+                <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="KolicinaEntry" Keyboard="Numeric"/>
+             </VerticalStackLayout>
+            
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout>
-            <Entry Placeholder="Unesite Opis Namirnice" x:Name="OpisEntry"/>
-        </HorizontalStackLayout>
+        <Button Text="Dodaj" WidthRequest="100" Clicked="DodajNamirnicu"/>
 
-        <HorizontalStackLayout>
-            <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="KolicinaEntry" Keyboard="Numeric"/>
-        </HorizontalStackLayout>
-
-        <Button Text="Dodaj" Clicked="DodajNamirnicu"/>
-
-        <Button Text="Izadji" Clicked="Izadji"/>
-
-        <Button Text="Dodaj Slicku" Clicked="DodajSliku"/>
+        <Button Text="Izadji" WidthRequest="100" Clicked="Izadji"/>
 
         <!--<Image x:Name="Slika"/>-->
 

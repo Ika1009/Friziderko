@@ -39,6 +39,12 @@ public partial class NamirnicePopup : Popup
 
         await friziderPageViewModel.DodajNamirnicuAsync(namirnica);
 
+        NazivEntry.Text = "";
+        OpisEntry.Text = "";
+        KolicinaEntry.Text = "";
+
+        await friziderPageViewModel.GetNamirniceAsync(); // update kolekcije(jer se upravo dodala nova)
+
 
     }
     private void Izadji(object sender, EventArgs e)
@@ -63,9 +69,9 @@ public partial class NamirnicePopup : Popup
 
 
 
-        //var stream = await result.OpenReadAsync();
+        var stream = await result.OpenReadAsync();
 
-        //Slika.Source =  ImageSource.FromStream(() => stream);
-
+        Slika.Source =  ImageSource.FromStream(() => stream);
+        Slika.Aspect = Aspect.AspectFill;
 	}
 }

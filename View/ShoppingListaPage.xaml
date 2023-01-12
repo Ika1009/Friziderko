@@ -5,6 +5,7 @@
              xmlns:model="clr-namespace:Friziderko.Model"
              x:Class="Friziderko.View.ShoppingListaPage"
              x:DataType="viewmodel:ShoppingListaPageViewModel"
+             Loaded="Ucitaj"
              Title="{Binding Title}">
     <VerticalStackLayout>
         <CollectionView BackgroundColor="Transparent"
@@ -32,8 +33,7 @@
         
         
         <HorizontalStackLayout>
-            <Entry Placeholder="Dodaj" x:Name="DodajEntry"/>
-            <Button Text="+" Clicked="DodajArtikal"/>
+            <Entry Placeholder="Dodaj" x:Name="DodajEntry" Completed="DodajArtikal"/>
         </HorizontalStackLayout>
 
         <Button Text="Pokazi sve"
