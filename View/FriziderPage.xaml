@@ -9,9 +9,9 @@
              Title="{Binding Title}">
 
     <Grid BackgroundColor="#15151f"
-          Padding="20">
+          Padding="20,20,20,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -19,11 +19,11 @@
                    PlaceholderColor="#9a96b5"
                    TextColor="White"
                    FontSize="16"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
                    WidthRequest="345"
                    HeightRequest="45"
-                   Background="#38385c"                  
+                   Background="#38385c"
                    IsTextPredictionEnabled="True"/>
 
         <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
@@ -60,7 +60,7 @@
                                          WidthRequest="90"
                                          HorizontalOptions="Center"
                                          VerticalOptions="End"
-                                         Color="White"
+                                         Color="#cac9ff"
                                          Opacity="0.5"/>
 
                                 <Label Text="{Binding Kolicina, StringFormat='×{0}'}"
@@ -71,7 +71,7 @@
                                        FontAttributes="Bold"
                                        MaximumWidthRequest="100"
                                        MaximumHeightRequest="30"
-                                       Margin="0,0,5,0"/>
+                                       Margin="0,0,10,0"/>
                             </Grid>
 
                             <Label Text="{Binding Naziv}"
@@ -112,11 +112,11 @@
                 FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
-                Margin="0,0,5,5"
+                Margin="0,0,5,25"
                 Clicked="DodajNamirnicu"
                 Grid.Row="1"
                 CornerRadius="40"
-                BackgroundColor="#44c914"
+                BackgroundColor="#d787ff"
                 Padding="-100,-100,-100,-95"/>
     </Grid>
 
