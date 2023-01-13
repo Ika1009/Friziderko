@@ -11,7 +11,7 @@
     <Grid BackgroundColor="#15151f"
           Padding="20,20,20,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -34,14 +34,14 @@
                 <GridItemsLayout Orientation="Vertical"
                                  Span="3"/>
             </CollectionView.ItemsLayout>
-            
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Namirnica">
-                    <Frame HeightRequest="220"
+                    <Frame HeightRequest="205"
                            WidthRequest="110"
                            Margin="4"
                            BackgroundColor="#38385c"
-                           Padding="10"
+                           Padding="0,0,0,0"
                            CornerRadius="5"
                            BorderColor="Transparent">
 
@@ -55,7 +55,7 @@
                                        WidthRequest="90"
                                        HeightRequest="90"                                    
                                        VerticalOptions="Center"/>
-                                
+
                                 <BoxView HeightRequest="25"
                                          WidthRequest="90"
                                          HorizontalOptions="Center"
@@ -79,7 +79,8 @@
                                    FontSize="15"
                                    HorizontalTextAlignment="Center"
                                    FontAttributes="Bold"
-                                   MaxLines="1"/>
+                                   MaxLines="1"
+                                   Margin="0,2,0,0"/>
 
                             <Button Text="Obrisi"
                                     FontSize="16"
@@ -104,7 +105,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
         <Button Text="+" 
                 TextColor="White"
                 WidthRequest="80"
@@ -112,7 +112,7 @@
                 FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
-                Margin="0,0,5,25"
+                Margin="0,0,-5,15"
                 Clicked="DodajNamirnicu"
                 Grid.Row="1"
                 CornerRadius="40"
