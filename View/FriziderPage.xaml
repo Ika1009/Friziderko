@@ -8,17 +8,19 @@
              Loaded="Ucitaj"
              Title="{Binding Title}">
 
-    <Grid>
+    <Grid BackgroundColor="#f0f0f0">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <SearchBar Placeholder="Pretraži"
                    PlaceholderColor="Gray"
+                   FontSize="16"
                    VerticalOptions="Center"
-                   WidthRequest="500"/>
+                   WidthRequest="350"
+                   Background="LightGray"                  
+                   HorizontalOptions="Center"/>
 
         <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
                         SelectionMode="None"                      
@@ -26,44 +28,64 @@
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
-                                 Span="4"/>
+                                 Span="3"/>
             </CollectionView.ItemsLayout>
             
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Namirnica">
-                    <Frame HeightRequest="245"
-                           WidthRequest="140"
+                    <Frame HeightRequest="220"
+                           WidthRequest="120"
                            Margin="10"
-                           BackgroundColor="Gray">
+                           BackgroundColor="#c7c7c7"
+                           Padding="10"
+                           CornerRadius="15"
+                           BorderColor="Transparent">
 
                         <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Padding="0"
                                              WidthRequest="100">
                             <Grid>
                                 <Image Aspect="AspectFill"
-                                   Source="{Binding Put_slika}"
-                                   WidthRequest="100"
-                                   HeightRequest="100"
-                                   VerticalOptions="Center"/>
-
+                                       Source="{Binding Put_slika}"
+                                       WidthRequest="100"
+                                       HeightRequest="100"                                    
+                                       VerticalOptions="Center"/>
+                                
+                                <BoxView HeightRequest="28"
+                                         WidthRequest="100"
+                                         HorizontalOptions="End"
+                                         VerticalOptions="End"
+                                         Color="White"
+                                         Opacity="0.5"/>
+                                
                                 <Label Text="{Binding Kolicina}"
+                                       TextColor="Black"
                                        HorizontalOptions="End"
                                        VerticalOptions="End"
                                        FontSize="24"
                                        FontAttributes="Bold"
                                        MaximumWidthRequest="100"
-                                       MaximumHeightRequest="30"/>
+                                       MaximumHeightRequest="30"
+                                       Margin="0,0,5,0"/>
                             </Grid>
 
                             <Label Text="{Binding Naziv}"
-                                   FontSize="16"
-                                   HorizontalTextAlignment="Center"/>
+                                   TextColor="Black"
+                                   FontSize="15"
+                                   HorizontalTextAlignment="Center"
+                                   FontAttributes="Bold"
+                                   MaxLines="1"/>
 
                             <Button Text="Obrisi"
                                     BindingContext="{Binding Id}"
-                                    Clicked="Obrisi"/>
+                                    Clicked="Obrisi"
+                                    HeightRequest="35"
+                                    Margin="0,5"/>
 
                             <Button Text="Promeni"
-                                    BindingContext="{Binding Id}"/>
+                                    BindingContext="{Binding Id}"
+                                    HeightRequest="35"/>
                         </VerticalStackLayout>
 
                     </Frame>
@@ -71,15 +93,18 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Text="+"
-                WidthRequest="100"
-                HeightRequest="100"
-                FontSize="Large"
+        <Button Text="+" 
+                TextColor="White"
+                WidthRequest="80"
+                HeightRequest="80"
+                FontSize="40"
                 HorizontalOptions="End"
                 VerticalOptions="End"
-                Margin="0,0,10,10"
+                Margin="0,0,20,20"
                 Clicked="DodajNamirnicu"
-                Grid.Row="2"/>
+                Grid.Row="1"
+                CornerRadius="40"
+                BackgroundColor="#44c914"/>
     </Grid>
 
 </ContentPage>
