@@ -7,96 +7,79 @@
              x:Class="Friziderko.View.FriziderPage"
              Loaded="Ucitaj"
              Title="{Binding Title}">
-    <Grid ColumnDefinitions="*,*"
-              ColumnSpacing="5"
-              RowDefinitions="*, Auto"
-              RowSpacing="0">
-            <CollectionView BackgroundColor="Transparent"
-                            Grid.ColumnSpan="2"
-                            ItemsSource="{Binding Kolekcija_namirnica}"
-                            SelectionMode="None">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Namirnica">
-                    <Frame HeightRequest="125"
-                           MaximumWidthRequest="1000"
-                               Padding="0">
-                        <HorizontalStackLayout Padding="10">
-                            <Label Text="{Binding Kolicina}" VerticalOptions="Center"/>
-                            <Image Aspect="AspectFill"
-                               Source="{Binding Put_slika}"
-                               WidthRequest="125"
-                               HeightRequest="125"
-                                   Margin="10"/>
-                            <VerticalStackLayout Grid.Column="1"
-                                                 Padding="10"
-                                                 VerticalOptions="Center">
-                                <Label Text="{Binding Naziv}"/>
-                                <Label Text="{Binding Opis}"/>
-                            </VerticalStackLayout>
 
-                            <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
-                                HeightRequest="50"
-                                WidthRequest="100"/>
-                            <Button Text="Promeni me" BindingContext="{Binding Id}"
-                                HeightRequest="50"
-                                WidthRequest="150"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
-                        </HorizontalStackLayout>
-                    </Frame>
-                    
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+        <SearchBar Placeholder="Pretraži"
+                   PlaceholderColor="Gray"
+                   VerticalOptions="Center"
+                   WidthRequest="500"/>
+
+        <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
+                        SelectionMode="None"                      
+                        Grid.Row="1">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="4"/>
+            </CollectionView.ItemsLayout>
             
-        <!--<Button Text="Pokazi sve"
-                Grid.Row="1"
-                Margin="8"               
-                Command="{Binding GetNamirniceCommand}"
-                />-->
-        <!--<ActivityIndicator IsVisible="{Binding IsBusy}"
-                           IsRunning="{Binding IsBusy}"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="Center"
-                           Grid.RowSpan="2"
-                           Grid.ColumnSpan="2"/>-->
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Namirnica">
+                    <Frame HeightRequest="245"
+                           WidthRequest="140"
+                           Margin="10"
+                           BackgroundColor="Gray">
 
-        <Button 
-            Text="Dodaj Namirnicu"
-            Clicked="DodajNamirnicu"
-            Grid.ColumnSpan="2"
-            Grid.Row="1"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            Margin="8"/>
-        
-    </Grid>
-        <!--<ScrollView>
-            <VerticalStackLayout>
-                <CollectionView x:Name="ListaNamirnica">
-                    <CollectionView.ItemsSource >
-                        
-                    </CollectionView.ItemsSource>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             WidthRequest="100">
                             <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="35"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding Kolicina}"/>
-                                <Label Grid.Column="0" Text="{Binding Naziv}"/>
-                                <Label Grid.Column="0" Text="{Binding Opis}"/>
-                                <Label Grid.Column="0" Text="{Binding Put_slika}"/>
+                                <Image Aspect="AspectFill"
+                                   Source="{Binding Put_slika}"
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   VerticalOptions="Center"/>
+
+                                <Label Text="{Binding Kolicina}"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="End"
+                                       FontSize="24"
+                                       FontAttributes="Bold"
+                                       MaximumWidthRequest="100"
+                                       MaximumHeightRequest="30"/>
                             </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </VerticalStackLayout>
-        </ScrollView>-->
+
+                            <Label Text="{Binding Naziv}"
+                                   FontSize="16"
+                                   HorizontalTextAlignment="Center"/>
+
+                            <Button Text="Obrisi"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="Obrisi"/>
+
+                            <Button Text="Promeni"
+                                    BindingContext="{Binding Id}"/>
+                        </VerticalStackLayout>
+
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="+"
+                WidthRequest="100"
+                HeightRequest="100"
+                FontSize="Large"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="0,0,10,10"
+                Clicked="DodajNamirnicu"
+                Grid.Row="2"/>
+    </Grid>
 
 </ContentPage>
