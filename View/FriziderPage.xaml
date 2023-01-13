@@ -112,7 +112,7 @@
                 FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
-                Margin="0,0,20,20"
+                Margin="0,0,5,5"
                 Clicked="DodajNamirnicu"
                 Grid.Row="1"
                 CornerRadius="40"
