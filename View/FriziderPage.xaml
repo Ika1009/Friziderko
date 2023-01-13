@@ -8,19 +8,23 @@
              Loaded="Ucitaj"
              Title="{Binding Title}">
 
-    <Grid BackgroundColor="#f0f0f0">
+    <Grid BackgroundColor="#15151f"
+          Padding="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <SearchBar Placeholder="Pretraži"
-                   PlaceholderColor="Gray"
+                   PlaceholderColor="#9a96b5"
+                   TextColor="White"
                    FontSize="16"
+                   HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   WidthRequest="350"
-                   Background="LightGray"                  
-                   HorizontalOptions="Center"/>
+                   WidthRequest="345"
+                   HeightRequest="45"
+                   Background="#38385c"                  
+                   IsTextPredictionEnabled="True"/>
 
         <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
                         SelectionMode="None"                      
@@ -34,11 +38,11 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Namirnica">
                     <Frame HeightRequest="220"
-                           WidthRequest="120"
-                           Margin="10"
-                           BackgroundColor="#c7c7c7"
+                           WidthRequest="110"
+                           Margin="4"
+                           BackgroundColor="#38385c"
                            Padding="10"
-                           CornerRadius="15"
+                           CornerRadius="5"
                            BorderColor="Transparent">
 
                         <VerticalStackLayout HorizontalOptions="Center"
@@ -48,22 +52,22 @@
                             <Grid>
                                 <Image Aspect="AspectFill"
                                        Source="{Binding Put_slika}"
-                                       WidthRequest="100"
-                                       HeightRequest="100"                                    
+                                       WidthRequest="90"
+                                       HeightRequest="90"                                    
                                        VerticalOptions="Center"/>
                                 
-                                <BoxView HeightRequest="28"
-                                         WidthRequest="100"
-                                         HorizontalOptions="End"
+                                <BoxView HeightRequest="25"
+                                         WidthRequest="90"
+                                         HorizontalOptions="Center"
                                          VerticalOptions="End"
                                          Color="White"
                                          Opacity="0.5"/>
-                                
-                                <Label Text="{Binding Kolicina}"
+
+                                <Label Text="{Binding Kolicina, StringFormat='×{0}'}"
                                        TextColor="Black"
                                        HorizontalOptions="End"
                                        VerticalOptions="End"
-                                       FontSize="24"
+                                       FontSize="20"
                                        FontAttributes="Bold"
                                        MaximumWidthRequest="100"
                                        MaximumHeightRequest="30"
@@ -71,21 +75,29 @@
                             </Grid>
 
                             <Label Text="{Binding Naziv}"
-                                   TextColor="Black"
+                                   TextColor="White"
                                    FontSize="15"
                                    HorizontalTextAlignment="Center"
                                    FontAttributes="Bold"
                                    MaxLines="1"/>
 
                             <Button Text="Obrisi"
+                                    FontSize="16"
                                     BindingContext="{Binding Id}"
                                     Clicked="Obrisi"
-                                    HeightRequest="35"
-                                    Margin="0,5"/>
+                                    HeightRequest="32"
+                                    WidthRequest="90"
+                                    BackgroundColor="#645d87"
+                                    Margin="0,5"
+                                    Padding="0"/>
 
                             <Button Text="Promeni"
+                                    FontSize="16"
                                     BindingContext="{Binding Id}"
-                                    HeightRequest="35"/>
+                                    HeightRequest="32"
+                                    WidthRequest="90"
+                                    BackgroundColor="#645d87"
+                                    Padding="0"/>
                         </VerticalStackLayout>
 
                     </Frame>
@@ -97,14 +109,15 @@
                 TextColor="White"
                 WidthRequest="80"
                 HeightRequest="80"
-                FontSize="40"
+                FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
                 Margin="0,0,20,20"
                 Clicked="DodajNamirnicu"
                 Grid.Row="1"
                 CornerRadius="40"
-                BackgroundColor="#44c914"/>
+                BackgroundColor="#44c914"
+                Padding="-100,-100,-100,-95"/>
     </Grid>
 
 </ContentPage>
