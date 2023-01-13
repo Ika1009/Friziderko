@@ -36,7 +36,7 @@
         Title="Moj profil"
         ContentTemplate="{DataTemplate views:MojProfilPage}"
         Route="MojProfilPage" 
-        Icon="my_profile_icon.png"/>
+        Icon="my_profile_icon.jpg"/>
     <ShellContent
         Title="O nama"
         Icon="about_us_icon.png"
