@@ -89,5 +89,10 @@ namespace Friziderko.ViewModel
             bazaPristupServis.ObrisiNamirnicu(namirnicaZaBrisanje);
         }
 
+        public Namirnica Pronadji(int id)
+        {
+            return lista_namirnica.Where(x => x.Id == id).First();
+        }
+
 	}
 }

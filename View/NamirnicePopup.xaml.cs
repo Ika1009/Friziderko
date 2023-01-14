@@ -10,11 +10,19 @@ public partial class NamirnicePopup : Popup
 {
     FriziderPageViewModel friziderPageViewModel;
     FileResult result;
-    public NamirnicePopup(FriziderPageViewModel vm)
+    public NamirnicePopup(FriziderPageViewModel vm, Namirnica namirnica)
     {
         InitializeComponent();
         BindingContext= vm;
         friziderPageViewModel = vm;
+        //ako je se edituje onda namirnica postoji tj nije null, samim time se postavljaju vrednosti jer se edituje ista
+        if(namirnica != null )
+        {
+            NazivEntry.Text = namirnica.Naziv;
+            OpisEntry.Text = namirnica.Opis;
+            KolicinaEntry.Text = namirnica.Kolicina.ToString();
+            Slika.Source = namirnica.Put_slika;
+        }
     }
 
 

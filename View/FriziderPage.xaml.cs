@@ -17,7 +17,7 @@ public partial class FriziderPage : ContentPage
 
     private void DodajNamirnicu(object sender, EventArgs e)
     {
-        this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel));
+        this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel, null));
 
     }
     private void Obrisi(object sender, EventArgs e)
@@ -31,4 +31,13 @@ public partial class FriziderPage : ContentPage
 		//zove se funkcija koja popunjava kolekciju namirnica, koja se zatim ispisuje
 		await friziderkoPageViewModel.GetNamirniceAsync();
     }
+    private void Promeni(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+
+        //pronadje namirnicu koju zeli da promeni
+        Namirnica namirnica = friziderkoPageViewModel.Pronadji((int)button.BindingContext);
+
+		this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel, namirnica));
+	}
 }

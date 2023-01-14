@@ -95,6 +95,7 @@
                             <Button Text="Promeni"
                                     FontSize="16"
                                     BindingContext="{Binding Id}"
+                                    Clicked="Promeni"
                                     HeightRequest="32"
                                     WidthRequest="90"
                                     BackgroundColor="#645d87"
