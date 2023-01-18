@@ -66,7 +66,7 @@ public partial class NamirnicePopup : Popup
     }
     private void Izadji(object sender, EventArgs e)
     {
-        this.Close();
+        Close();
     }
 
     private async void DodajSliku(object sender, EventArgs e)
@@ -85,7 +85,7 @@ public partial class NamirnicePopup : Popup
         }
 
 
-
+        //put do slike
         var stream = await result.OpenReadAsync();
 
         Slika.Source =  ImageSource.FromStream(() => stream);

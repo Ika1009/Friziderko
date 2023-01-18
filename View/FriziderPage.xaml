@@ -107,6 +107,10 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        
+        <!--<Button Text="Refresh"
+                Command="{Binding GetNamirniceCommand}"/>-->
+        
         <Button Text="+" 
                 TextColor="White"
                 WidthRequest="80"
