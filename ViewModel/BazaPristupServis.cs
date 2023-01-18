@@ -13,7 +13,8 @@ namespace Friziderko.ViewModel
         private SQLiteAsyncConnection conn;
         private readonly string dbPath;
         public BazaPristupServis() { dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka.db3"); } // constructor da poveze put
-
+        
+        //INITI
         private void InitArtikal()
         {
             if (conn != null)
@@ -35,6 +36,7 @@ namespace Friziderko.ViewModel
             conn = new SQLiteAsyncConnection(dbPath);
             conn.CreateTableAsync<Recept>(); 
         }
+        // DODAVANJE
 		public string DodajArtikal(Artikal artikal)
 		{
 			string statusMessage;
@@ -96,6 +98,8 @@ namespace Friziderko.ViewModel
                 //StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
             }
         }
+
+        // GET ALL
 		public async Task<List<Artikal>> GetAllArtikalsAsync()
 		{
 			try
@@ -144,6 +148,8 @@ namespace Friziderko.ViewModel
 
             return new List<Recept>();
         }
+
+        // BRISANJE
 		public void ObrisiArtikal(Artikal artikal)
 		{
 			InitArtikal();
@@ -155,6 +161,32 @@ namespace Friziderko.ViewModel
             InitNamirnica();
 
             conn.DeleteAsync(namirnica);
+        }
+        public void ObrisiRecept(Recept recept)
+        {
+            InitRecept();
+
+            conn.DeleteAsync(recept);
+        }
+
+        //MENJANJE
+        public void IzmeniArtikal(Artikal artikal)
+        {
+            InitArtikal();
+
+            conn.UpdateAsync(artikal);
+        }
+        public void IzmeniNamirnicu(Namirnica namirnica)
+        {
+            InitNamirnica();
+
+            conn.UpdateAsync(namirnica);
+        }
+        public void IzmeniRecept(Recept recept)
+        {
+            InitRecept();
+
+            conn.UpdateAsync(recept);
         }
     }
 }

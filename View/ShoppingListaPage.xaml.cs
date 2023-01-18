@@ -44,4 +44,10 @@ public partial class ShoppingListaPage : ContentPage
 		//zove se funkcija koja popunjava kolekciju artikla, koja se zatim ispisuje
 		await shoppingListaPageViewModel.GetArtikleAsync();
 	}
+
+	private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+	{
+        CheckBox checkBox = (CheckBox)sender;
+        shoppingListaPageViewModel.IzmeniArtikal((int)checkBox.BindingContext, checkBox.IsChecked);
+    }
 }

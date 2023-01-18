@@ -85,5 +85,13 @@ namespace Friziderko.ViewModel
 			kolekcija_artikal.Remove(ArtikalZaBrisanje);
 			bazaPristupServis.ObrisiArtikal(ArtikalZaBrisanje);
 		}
+		public async void IzmeniArtikal(int id, bool stikliran)
+		{
+            Artikal artikalZaMenjanje = lista_artikal.Where(x => x.Id == id).First();
+			artikalZaMenjanje.Precrtano = stikliran; // nadji artikal i namesti dal je stikliran ili ne
+
+            bazaPristupServis.IzmeniArtikal(artikalZaMenjanje); // izmena u bazi
+			await GetArtikleAsync(); // ispisi posle opet
+        }
 	}
 }
