@@ -7,7 +7,7 @@ namespace Friziderko.View;
 
 public partial class ShoppingListaPage : ContentPage
 {
-	ShoppingListaPageViewModel shoppingListaPageViewModel;
+	readonly ShoppingListaPageViewModel shoppingListaPageViewModel;
 	public ShoppingListaPage(ShoppingListaPageViewModel vm)
 	{
 		InitializeComponent();
@@ -24,7 +24,7 @@ public partial class ShoppingListaPage : ContentPage
 			await Shell.Current.DisplayAlert("Greška", "Morate uneti naziv artikla!", "OK");
 		}
 
-		Artikal artikal = new Artikal(Naziv, false);
+		Artikal artikal = new (Naziv, false);
 
 		await shoppingListaPageViewModel.DodajArtikalAsync(artikal);
 
