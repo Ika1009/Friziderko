@@ -12,7 +12,7 @@ namespace Friziderko.ViewModel
 {
     public partial class ShoppingListaPageViewModel : ObservableObject
     {
-        BazaPristupServis bazaPristupServis;
+        readonly BazaPristupServis bazaPristupServis;
 		[ObservableProperty]
 		string title;
 
