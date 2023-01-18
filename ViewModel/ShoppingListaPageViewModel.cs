@@ -36,9 +36,6 @@ namespace Friziderko.ViewModel
 			title = "Kupovna lista";
 		}
 
-		//pretvara u komandu da bi moglo da se pozove iz view
-		[RelayCommand]
-		//treba da se pozove pri startapu aplikacije
 		public async Task GetArtikleAsync() // samo uzima Artikle iz baze
 		{
 			if (isBusy)
