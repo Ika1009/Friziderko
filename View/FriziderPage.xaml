@@ -24,7 +24,8 @@
                    WidthRequest="345"
                    HeightRequest="45"
                    Background="#38385c"
-                   IsTextPredictionEnabled="True"/>
+                   IsTextPredictionEnabled="True"
+                   TextChanged="SearchBar_TextChanged"/>
 
         <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
                         SelectionMode="None"                      

@@ -28,6 +28,7 @@ namespace Friziderko.ViewModel
             get => isBusy; set => isBusy = value;
         }
 
+        [ObservableProperty]
         List<Namirnica> lista_namirnica = new();
         [ObservableProperty]
         ObservableCollection<Namirnica> kolekcija_namirnica = new();
