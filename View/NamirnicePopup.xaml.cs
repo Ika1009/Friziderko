@@ -39,7 +39,7 @@ public partial class NamirnicePopup : Popup
             return;
         }
 
-        // ako je resultat null tj ne izabere se slika, onda se doda znak pitanja umesto nje
+        // ako je resultat null tj ne izabere se slika, onda se doda default umesto nje
         if (result == null)
         {
             namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "help_icon.png");

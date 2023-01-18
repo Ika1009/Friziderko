@@ -22,7 +22,7 @@
                             <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
                                     HeightRequest="50"
                                     WidthRequest="100"/>
-                            <CheckBox/>
+                            <CheckBox />
                             <Label Text="{Binding Naziv}"/>
                         </Grid>
                     </Frame>

@@ -95,5 +95,28 @@ namespace Friziderko.ViewModel
             return lista_namirnica.Where(x => x.Id == id).First();
         }
 
+        public void Searchbar(string searchTerm)
+        {
+			var filteredItems = lista_namirnica.Where(value => value.Naziv.ToLowerInvariant().Contains(searchTerm)).ToList();
+
+			if (string.IsNullOrWhiteSpace(searchTerm))
+			{
+				searchTerm = string.Empty;
+				filteredItems = lista_namirnica;
+			}
+
+			foreach (var value in lista_namirnica)
+			{
+				if (!filteredItems.Contains(value))
+				{
+					kolekcija_namirnica.Remove(value);
+				}
+				else if (!Kolekcija_namirnica.Contains(value))
+				{
+					kolekcija_namirnica.Add(value);
+
+				}
+			}
+		}
 	}
 }
