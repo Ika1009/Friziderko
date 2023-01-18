@@ -43,33 +43,9 @@ public partial class FriziderPage : ContentPage
 
 	private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
 	{
-        var searchTerm = e.NewTextValue;
+        string searchTerm = e.NewTextValue.ToLowerInvariant();
 
-        if (string.IsNullOrWhiteSpace(searchTerm))
-        {
-            searchTerm= string.Empty;
-        }
-
-        searchTerm = searchTerm.ToLowerInvariant();
-
-        var filteredItems = friziderkoPageViewModel.Lista_namirnica.Where(value => value.Naziv.ToLowerInvariant().Contains(searchTerm)).ToList();
-
-        if (string.IsNullOrWhiteSpace(searchTerm))
-        {
-            filteredItems = friziderkoPageViewModel.Lista_namirnica;
-        }
-
-        foreach (var value in friziderkoPageViewModel.Lista_namirnica)
-        {
-            if (!filteredItems.Contains(value))
-            {
-                friziderkoPageViewModel.Kolekcija_namirnica.Remove(value);
-            }
-            else if (!friziderkoPageViewModel.Kolekcija_namirnica.Contains(value))
-            {
-				friziderkoPageViewModel.Kolekcija_namirnica.Add(value);
-
-			}
-        }
+        friziderkoPageViewModel.Searchbar(searchTerm);
+        
     }
 }
