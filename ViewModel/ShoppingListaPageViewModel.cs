@@ -91,7 +91,6 @@ namespace Friziderko.ViewModel
 			artikalZaMenjanje.Precrtano = stikliran; // nadji artikal i namesti dal je stikliran ili ne
 
             bazaPristupServis.IzmeniArtikal(artikalZaMenjanje); // izmena u bazi
-			await GetArtikleAsync(); // ispisi posle opet
         }
 	}
 }
