@@ -22,7 +22,7 @@
                             <Button Text="Obrisi me" BindingContext="{Binding Id}" Clicked="Obrisi"
                                     HeightRequest="50"
                                     WidthRequest="100"/>
-                            <CheckBox IsChecked="{Binding Precrtano}" CheckedChanged="CheckBox_CheckedChanged" BindingContext="{Binding Id}"/>
+                            <CheckBox IsChecked="{Binding Precrtano, Mode=OneWay}" CheckedChanged="CheckBox_CheckedChanged" BindingContext="{Binding Id}"/>
                             <Label Text="{Binding Naziv}"/>
                         </Grid>
                     </Frame>
