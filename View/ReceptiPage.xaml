@@ -3,14 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Friziderko.View.ReceptiPage"
              Title="ReceptiPage">
-    <VerticalStackLayout>
+    <Grid BackgroundColor="#15151f"
+          Padding="20,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <SearchBar Placeholder="Pretraži"
+                   PlaceholderColor="#9a96b5"
+                   TextColor="White"
+                   FontSize="16"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
+                   WidthRequest="345"
+                   HeightRequest="45"
+                   Background="#38385c"
+                   IsTextPredictionEnabled="True"/>
+
+        <CollectionView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                        
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
         <Button Text="+"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"
-                Clicked="DodajRecept"/>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+                FontSize="72"
+                WidthRequest="80"
+                HeightRequest="80"
+                Padding="-100,-100,-100,-95"
+                VerticalOptions="End" 
+                HorizontalOptions="End"
+                Clicked="DodajRecept"
+                Margin="0,20,0,20"
+                CornerRadius="40"
+                Grid.Row="1"/>
+    </Grid>
+    
 </ContentPage>

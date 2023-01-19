@@ -23,48 +23,48 @@
                    VerticalOptions="Start"
                    WidthRequest="345"
                    HeightRequest="45"
-                   Background="#38385c"
+                   Background="#2e2e4a"
                    IsTextPredictionEnabled="True"
                    TextChanged="SearchBar_TextChanged"/>
 
-        <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
+            <CollectionView ItemsSource="{Binding Kolekcija_namirnica}"
                         SelectionMode="None"                      
                         Grid.Row="1">
 
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
                                  Span="3"/>
-            </CollectionView.ItemsLayout>
+                </CollectionView.ItemsLayout>
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Namirnica">
-                    <Frame HeightRequest="205"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Namirnica">
+                        <Frame HeightRequest="205"
                            WidthRequest="110"
-                           Margin="4"
-                           BackgroundColor="#38385c"
+                           Margin="0,0,0,25"
+                           BackgroundColor="#2e2e4a"
                            Padding="0,0,0,0"
                            CornerRadius="5"
                            BorderColor="Transparent">
 
-                        <VerticalStackLayout HorizontalOptions="Center"
+                            <VerticalStackLayout HorizontalOptions="Center"
                                              VerticalOptions="Center"
                                              Padding="0"
                                              WidthRequest="100">
-                            <Grid>
-                                <Image Aspect="AspectFill"
+                                <Grid>
+                                    <Image Aspect="AspectFill"
                                        Source="{Binding Put_slika}"
                                        WidthRequest="90"
                                        HeightRequest="90"                                    
                                        VerticalOptions="Center"/>
 
-                                <BoxView HeightRequest="25"
+                                    <BoxView HeightRequest="25"
                                          WidthRequest="90"
                                          HorizontalOptions="Center"
                                          VerticalOptions="End"
                                          Color="#cac9ff"
                                          Opacity="0.5"/>
 
-                                <Label Text="{Binding Kolicina, StringFormat='×{0}'}"
+                                    <Label Text="{Binding Kolicina, StringFormat='×{0}'}"
                                        TextColor="Black"
                                        HorizontalOptions="End"
                                        VerticalOptions="End"
@@ -73,9 +73,9 @@
                                        MaximumWidthRequest="100"
                                        MaximumHeightRequest="30"
                                        Margin="0,0,10,0"/>
-                            </Grid>
+                                </Grid>
 
-                            <Label Text="{Binding Naziv}"
+                                <Label Text="{Binding Naziv}"
                                    TextColor="White"
                                    FontSize="15"
                                    HorizontalTextAlignment="Center"
@@ -83,17 +83,17 @@
                                    MaxLines="1"
                                    Margin="0,2,0,0"/>
 
-                            <Button Text="Obrisi"
+                                <Button Text="Obrisi"
                                     FontSize="16"
                                     BindingContext="{Binding Id}"
                                     Clicked="Obrisi"
                                     HeightRequest="32"
                                     WidthRequest="90"
-                                    BackgroundColor="#645d87"
+                                    BackgroundColor="#d95081"
                                     Margin="0,5"
                                     Padding="0"/>
 
-                            <Button Text="Promeni"
+                                <Button Text="Promeni"
                                     FontSize="16"
                                     BindingContext="{Binding Id}"
                                     Clicked="Promeni"
@@ -101,28 +101,27 @@
                                     WidthRequest="90"
                                     BackgroundColor="#645d87"
                                     Padding="0"/>
-                        </VerticalStackLayout>
+                            </VerticalStackLayout>
 
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        
-        <!--<Button Text="Refresh"
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--<Button Text="Refresh"
                 Command="{Binding GetNamirniceCommand}"/>-->
         
         <Button Text="+" 
-                TextColor="White"
                 WidthRequest="80"
                 HeightRequest="80"
+                BackgroundColor="#0099ff"
                 FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
-                Margin="0,0,-5,15"
+                Margin="0,0,-5,35"
                 Clicked="DodajNamirnicu"
                 Grid.Row="1"
                 CornerRadius="40"
-                BackgroundColor="#d787ff"
                 Padding="-100,-100,-100,-95"/>
     </Grid>
 
