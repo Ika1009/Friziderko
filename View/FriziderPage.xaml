@@ -114,7 +114,7 @@
         <Button Text="+" 
                 WidthRequest="80"
                 HeightRequest="80"
-                BackgroundColor="#0099ff"
+                BackgroundColor="#bb00ff"
                 FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
