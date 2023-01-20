@@ -35,6 +35,7 @@
                 FontSize="72"
                 WidthRequest="80"
                 HeightRequest="80"
+                BackgroundColor="#bb00ff"
                 Padding="-100,-100,-100,-95"
                 VerticalOptions="End" 
                 HorizontalOptions="End"

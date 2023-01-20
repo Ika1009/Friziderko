@@ -5,21 +5,49 @@
             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui" 
             x:Class="Friziderko.View.NamirnicePopup"
             CanBeDismissedByTappingOutsideOfPopup="False">
-    <VerticalStackLayout Padding="10">
-        <HorizontalStackLayout>
-            <ImageButton Source="help_icon.png" Aspect="AspectFill" WidthRequest="125" HeightRequest="125" Clicked="DodajSliku" x:Name="Slika"/>
+    <VerticalStackLayout Padding="15"
+                         BackgroundColor="#2e2e4a">
+        <HorizontalStackLayout VerticalOptions="Center">
+            <ImageButton Source="help_icon.png"
+                         Aspect="AspectFill"
+                         WidthRequest="125"
+                         HeightRequest="125"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Clicked="DodajSliku"
+                         x:Name="Slika"/>
             
             <VerticalStackLayout>
-                <Entry Placeholder="Unesite Naziv Namirnice" x:Name="NazivEntry"/>
-                <Entry Placeholder="Unesite Opis Namirnice" x:Name="OpisEntry"/>
-                <Entry Placeholder="Unesite Kolicinu Namirnice" x:Name="KolicinaEntry" Keyboard="Numeric"/>
+                <Entry Placeholder="Naziv namirnice"
+                       x:Name="NazivEntry"
+                       PlaceholderColor="#9a96b5"
+                       TextColor="White"/>
+                
+                <Entry Placeholder="Opis namirnice"
+                       x:Name="OpisEntry"
+                       PlaceholderColor="#9a96b5"
+                       TextColor="White"/>
+                
+                <Entry Placeholder="Kolicina namirnice"
+                       x:Name="KolicinaEntry"
+                       Keyboard="Numeric"
+                       PlaceholderColor="#9a96b5"
+                       TextColor="White"/>
              </VerticalStackLayout>
             
         </HorizontalStackLayout>
 
-        <Button Text="Dodaj" WidthRequest="100" Clicked="DodajNamirnicu"/>
-
-        <Button Text="Izadji" WidthRequest="100" Clicked="Izadji"/>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="Dodaj"
+                    WidthRequest="100"
+                    Margin="0,0,10,0"
+                    Clicked="DodajNamirnicu"/>
+            
+            <Button Text="Izadji"
+                    WidthRequest="100"
+                    Margin="10,0,0,0"
+                    Clicked="Izadji"/>
+        </HorizontalStackLayout>
 
         <!--<Image x:Name="Slika"/>-->
 
