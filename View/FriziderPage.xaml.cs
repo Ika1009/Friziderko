@@ -20,12 +20,24 @@ public partial class FriziderPage : ContentPage
         this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel, null));
 
     }
-    private void Obrisi(object sender, EventArgs e)
+    private async void Obrisi(object sender, EventArgs e)
     {
         Button button = (Button)sender;
 
-        friziderkoPageViewModel.ObrisiNamirnicu((int)button.BindingContext);
+        if (await DisplayAlert("Pitanje", "Da li ste sigurni da zelite da izbrisete namirnicu?", "Da", "Ne"))
+        {
+            try
+            {
+                friziderkoPageViewModel.ObrisiNamirnicu((int)button.BindingContext);
+            }
+
+            catch (Exception)
+            {
+                await DisplayAlert("Greska", "Nije moguce izbrisati namirnicu", "OK");
+            }
+        }
     }
+
     private async void Ucitaj(object sender, EventArgs e)
     {
 		//zove se funkcija koja popunjava kolekciju namirnica, koja se zatim ispisuje
