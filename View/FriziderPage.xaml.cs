@@ -24,7 +24,7 @@ public partial class FriziderPage : ContentPage
     {
         Button button = (Button)sender;
 
-        if (await DisplayAlert("Pitanje", "Da li ste sigurni da zelite da izbrisete namirnicu?", "Da", "Ne"))
+        if (await DisplayAlert("Pitanje", "Da li ste sigurni da zelite da izbrisete namirnicu?", "DA", "NE"))
         {
             try
             {

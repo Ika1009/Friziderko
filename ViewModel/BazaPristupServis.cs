@@ -111,8 +111,9 @@ namespace Friziderko.ViewModel
 			}
 			catch (Exception ex)
 			{
-				//StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
-			}
+                //StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+                await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
+            }
 
 			return new List<Artikal>();
 		}

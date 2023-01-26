@@ -42,7 +42,7 @@ public partial class NamirnicePopup : Popup
         // ako je resultat null tj ne izabere se slika, onda se doda default umesto nje
         if (result == null)
         {
-            namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "help_icon.png");
+            namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "no_image.png");
         }
         else
         {
@@ -57,7 +57,7 @@ public partial class NamirnicePopup : Popup
         NazivEntry.Text = "";
         OpisEntry.Text = "";
         KolicinaEntry.Text = "";
-        Slika.Source = "help_icon.png";
+        Slika.Source = "no_image.png";
 
 
 		await friziderPageViewModel.GetNamirniceAsync(); // update kolekcije(jer se upravo dodala nova)

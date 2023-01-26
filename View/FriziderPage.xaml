@@ -23,7 +23,7 @@
                    VerticalOptions="Start"
                    WidthRequest="345"
                    HeightRequest="45"
-                   Background="#2e2e4a"
+                   BackgroundColor="#2e2e4a"
                    IsTextPredictionEnabled="True"
                    TextChanged="SearchBar_TextChanged"/>
 
@@ -115,6 +115,7 @@
                 WidthRequest="80"
                 HeightRequest="80"
                 BackgroundColor="#bb00ff"
+                TextColor="White"
                 FontSize="72"
                 HorizontalOptions="End"
                 VerticalOptions="End"
