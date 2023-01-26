@@ -15,26 +15,14 @@ namespace Friziderko.ViewModel
         public BazaPristupServis() { dbPath = System.IO.Path.Combine(FileSystem.AppDataDirectory, "BazaPodataka.db3"); } // constructor da poveze put
         
         //INITI
-        private void InitArtikal()
+        private void Init()
         {
             if (conn != null)
                 return;
             conn = new SQLiteAsyncConnection(dbPath);
             conn.CreateTableAsync<Artikal>();
-        }
-        private void InitNamirnica()
-        {
-            if (conn != null)
-                return;
-            conn = new SQLiteAsyncConnection(dbPath);
             conn.CreateTableAsync<Namirnica>();
-        }
-        private void InitRecept()
-        {
-            if (conn != null)
-                return;
-            conn = new SQLiteAsyncConnection(dbPath);
-            conn.CreateTableAsync<Recept>(); 
+            conn.CreateTableAsync<Recept>();
         }
         // DODAVANJE
 		public string DodajArtikal(Artikal artikal)
@@ -42,7 +30,7 @@ namespace Friziderko.ViewModel
 			string statusMessage;
 			try
 			{
-				InitNamirnica();
+				Init();
 
 				// basic validation to ensure a namirnica is entered
 				if (artikal is null)
@@ -63,7 +51,7 @@ namespace Friziderko.ViewModel
             string statusMessage;
             try
             {
-                InitNamirnica();
+                Init();
 
                 // basic validation to ensure a namirnica is entered
                 if (namirnica is null)
@@ -83,7 +71,7 @@ namespace Friziderko.ViewModel
         {
             try
             {
-				InitRecept();
+				Init();
 
                 // basic validation to ensure a namirnica is entered
                 if (recept is null)
@@ -104,7 +92,7 @@ namespace Friziderko.ViewModel
 		{
 			try
 			{
-				InitArtikal();
+				Init();
 				if (conn.Table<Artikal>().ToListAsync() is null)
 					throw new Exception("Ne postoji ni jedna Artikal u Shopping Listi!");
 				return await conn.Table<Artikal>().ToListAsync();
@@ -121,7 +109,7 @@ namespace Friziderko.ViewModel
         {
             try
             {
-                InitNamirnica();
+                Init();
                 if (conn.Table<Namirnica>().ToListAsync() is null)
                     throw new Exception("Ne postoji ni jedna namirnica u frizideru!");
                 return await conn.Table<Namirnica>().ToListAsync();
@@ -137,7 +125,7 @@ namespace Friziderko.ViewModel
         {
             try
             {
-                InitRecept();
+                Init();
 				if (conn.Table<Namirnica>() is null)
 					throw new Exception("Ne postoji ni jedna namirnica u frizideru!");
 				return await conn.Table<Recept>().ToListAsync();
@@ -153,19 +141,19 @@ namespace Friziderko.ViewModel
         // BRISANJE
 		public void ObrisiArtikal(Artikal artikal)
 		{
-			InitArtikal();
+			Init();
 
 			conn.DeleteAsync(artikal);
 		}
 		public void ObrisiNamirnicu(Namirnica namirnica)
         {
-            InitNamirnica();
+            Init();
 
             conn.DeleteAsync(namirnica);
         }
         public void ObrisiRecept(Recept recept)
         {
-            InitRecept();
+            Init();
 
             conn.DeleteAsync(recept);
         }
@@ -173,19 +161,19 @@ namespace Friziderko.ViewModel
         //MENJANJE
         public void IzmeniArtikal(Artikal artikal)
         {
-            InitArtikal();
+            Init();
 
             conn.UpdateAsync(artikal);
         }
         public void IzmeniNamirnicu(Namirnica namirnica)
         {
-            InitNamirnica();
+            Init();
 
             conn.UpdateAsync(namirnica);
         }
         public void IzmeniRecept(Recept recept)
         {
-            InitRecept();
+            Init();
 
             conn.UpdateAsync(recept);
         }
