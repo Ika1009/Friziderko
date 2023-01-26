@@ -88,6 +88,7 @@
 
         <HorizontalStackLayout HorizontalOptions="Center">
             <Button Text="Dodaj"
+                    x:Name="Dugme"
                     FontSize="18"
                     BackgroundColor="#645d87"
                     WidthRequest="100"

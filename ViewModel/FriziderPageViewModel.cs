@@ -83,10 +83,29 @@ namespace Friziderko.ViewModel
 			finally { isBusy = false; isNotBusy = true; }
 		}
 
+        public async Task IzmeniNamirnicuAsync(Namirnica namirnica)
+        {
+            if (isBusy)
+                return;
+            try
+            {
+                isNotBusy = false;
+                isBusy = true;
+
+                bazaPristupServis.IzmeniNamirnicu(namirnica);
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
+            }
+            finally { isBusy = false; isNotBusy = true; }
+        }
+
         public void ObrisiNamirnicu(int id)
         {
             Namirnica namirnicaZaBrisanje = lista_namirnica.Where(x => x.Id == id).First();
             kolekcija_namirnica.Remove(namirnicaZaBrisanje);
+            lista_namirnica.Remove(namirnicaZaBrisanje);
             bazaPristupServis.ObrisiNamirnicu(namirnicaZaBrisanje);
         }
 

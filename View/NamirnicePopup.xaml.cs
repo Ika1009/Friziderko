@@ -10,33 +10,43 @@ public partial class NamirnicePopup : Popup
 {
     FriziderPageViewModel friziderPageViewModel;
     FileResult result;
+    Namirnica namirnica1;
     public NamirnicePopup(FriziderPageViewModel vm, Namirnica namirnica)
     {
         InitializeComponent();
         BindingContext= vm;
         friziderPageViewModel = vm;
+        namirnica1 = namirnica;
         //ako je se edituje onda namirnica postoji tj nije null, samim time se postavljaju vrednosti jer se edituje ista
-        if(namirnica != null )
+        if(namirnica1 != null )
         {
             NazivEntry.Text = namirnica.Naziv;
             OpisEntry.Text = namirnica.Opis;
             KolicinaEntry.Text = namirnica.Kolicina.ToString();
             Slika.Source = namirnica.Put_slika;
+            Dugme.Text = "Promeni";
         }
     }
 
 
     private async void DodajNamirnicu(object sender, EventArgs e)
     {
+
+
+        Namirnica namirnica;
         string nazivNamirnice = NazivEntry.Text;
         string opisNamirnice = OpisEntry.Text;
         string kolicinaNamirnice = KolicinaEntry.Text;
-        Namirnica namirnica;
 
         if (string.IsNullOrEmpty(nazivNamirnice) || string.IsNullOrEmpty(opisNamirnice) || string.IsNullOrEmpty(kolicinaNamirnice))
         {
             await Shell.Current.DisplayAlert("Greška", "Morate uneti sve vrednosti!", "OK");
             return;
+        }
+        
+        if (namirnica1 != null)
+        {
+            friziderPageViewModel.ObrisiNamirnicu(namirnica1.Id);
         }
 
         // ako je resultat null tj ne izabere se slika, onda se doda default umesto nje
