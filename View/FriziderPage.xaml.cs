@@ -18,7 +18,6 @@ public partial class FriziderPage : ContentPage
     private void DodajNamirnicu(object sender, EventArgs e)
     {
         this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel, null));
-
     }
     private async void Obrisi(object sender, EventArgs e)
     {
@@ -43,15 +42,19 @@ public partial class FriziderPage : ContentPage
 		//zove se funkcija koja popunjava kolekciju namirnica, koja se zatim ispisuje
 		await friziderkoPageViewModel.GetNamirniceAsync();
     }
-    private void Promeni(object sender, EventArgs e)
-    {
-        Button button = (Button)sender;
+	private void Edit(object sender, EventArgs e)
+	{
+		CustomImageButton button = (CustomImageButton)sender;
 
-        //pronadje namirnicu koju zeli da promeni
-        Namirnica namirnica = friziderkoPageViewModel.Pronadji((int)button.BindingContext);
+		//uzima id od klase
+		int id = button.ImageId;
+
+		Namirnica namirnica = friziderkoPageViewModel.Pronadji(id);
 
 		this.ShowPopup(new NamirnicePopup(friziderkoPageViewModel, namirnica));
 	}
+
+
 
 	private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
 	{
@@ -60,4 +63,25 @@ public partial class FriziderPage : ContentPage
         friziderkoPageViewModel.Searchbar(searchTerm);
         
     }
+
+	private async void Spusti(object sender, EventArgs e)
+	{
+		Button button = (Button)sender;
+		int id = (int)button.BindingContext;
+        
+        await friziderkoPageViewModel.SpustiKolicinuAsync(id);
+
+        await friziderkoPageViewModel.GetNamirniceAsync();
+
+        
+	}
+	private async void Digni(object sender, EventArgs e)
+	{
+		Button button = (Button)sender;
+		int id = (int)button.BindingContext;
+
+		await friziderkoPageViewModel.DigniKolicinuAsync(id);
+
+		await friziderkoPageViewModel.GetNamirniceAsync();
+	}
 }

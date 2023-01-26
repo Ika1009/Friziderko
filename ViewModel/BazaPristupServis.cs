@@ -158,24 +158,38 @@ namespace Friziderko.ViewModel
             conn.DeleteAsync(recept);
         }
 
-        //MENJANJE
-        public void IzmeniArtikal(Artikal artikal)
-        {
-            Init();
+		public async Task<string> UpdateKolicinu(Namirnica namirnica)
+		{
+			string statusMessage;
+			try
+			{
+				Init();
 
-            conn.UpdateAsync(artikal);
-        }
-        public void IzmeniNamirnicu(Namirnica namirnica)
-        {
-            Init();
+				await conn.UpdateAsync(namirnica);
 
-            conn.UpdateAsync(namirnica);
-        }
-        public void IzmeniRecept(Recept recept)
-        {
-            Init();
+				statusMessage = "success";
+			}
+			catch (Exception ex)
+			{
+				statusMessage = ex.Message;
+			}
+			return statusMessage;
+		}
+		public async void IzmeniArtikal(Artikal artikal)
+		{
+			string statusMessage;
+			try
+			{
+				Init();
 
-            conn.UpdateAsync(recept);
-        }
-    }
+				await conn.UpdateAsync(artikal);
+
+				statusMessage = "success";
+			}
+			catch (Exception ex)
+			{
+				statusMessage = ex.Message;
+			}
+		}
+	}
 }

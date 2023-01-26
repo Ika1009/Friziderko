@@ -94,7 +94,16 @@
                     WidthRequest="100"
                     Margin="0,0,15,0"
                     Clicked="DodajNamirnicu"/>
-            
+
+            <Button Text="Edit"
+                    x:Name="EditDugme"
+                    FontSize="18"
+                    BackgroundColor="#645d87"
+                    WidthRequest="100"
+                    Margin="0,0,15,0"
+                    Clicked="EditMode"
+                    IsVisible="false"/>
+
             <Button Text="Izađi"
                     FontSize="18"
                     BackgroundColor="#d95081"

@@ -83,7 +83,9 @@ namespace Friziderko.ViewModel
 			finally { isBusy = false; isNotBusy = true; }
 		}
 
-        public async Task IzmeniNamirnicuAsync(Namirnica namirnica)
+
+
+		public async Task SpustiKolicinuAsync(int id)
         {
             if (isBusy)
                 return;
@@ -92,16 +94,47 @@ namespace Friziderko.ViewModel
                 isNotBusy = false;
                 isBusy = true;
 
-                bazaPristupServis.IzmeniNamirnicu(namirnica);
-            }
+                Namirnica namirnica = Pronadji(id);
+                namirnica.Kolicina--;
+
+                if (namirnica == null)
+                    return;
+
+                await bazaPristupServis.UpdateKolicinu(namirnica);
+
+			}
             catch (Exception ex)
             {
                 await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
             }
             finally { isBusy = false; isNotBusy = true; }
         }
+		public async Task DigniKolicinuAsync(int id)
+		{
+			if (isBusy)
+				return;
+			try
+			{
+				isNotBusy = false;
+				isBusy = true;
 
-        public void ObrisiNamirnicu(int id)
+				Namirnica namirnica = Pronadji(id);
+				namirnica.Kolicina++;
+
+				if (namirnica == null)
+					return;
+
+				await bazaPristupServis.UpdateKolicinu(namirnica);
+
+			}
+			catch (Exception ex)
+			{
+				await Shell.Current.DisplayAlert("Greška", "Došlo je do greške pri prekazivanju: " + ex.Message, "OK");
+			}
+			finally { isBusy = false; isNotBusy = true; }
+		}
+
+		public void ObrisiNamirnicu(int id)
         {
             Namirnica namirnicaZaBrisanje = lista_namirnica.Where(x => x.Id == id).First();
             kolekcija_namirnica.Remove(namirnicaZaBrisanje);

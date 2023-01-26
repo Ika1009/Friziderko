@@ -24,15 +24,26 @@ public partial class NamirnicePopup : Popup
             OpisEntry.Text = namirnica.Opis;
             KolicinaEntry.Text = namirnica.Kolicina.ToString();
             Slika.Source = namirnica.Put_slika;
+            Slika.IsEnabled = false;
             Dugme.Text = "Promeni";
-        }
+            Dugme.IsVisible = false;
+            NazivEntry.IsReadOnly = true;
+			OpisEntry.IsReadOnly = true;
+			KolicinaEntry.IsReadOnly = true;
+            EditDugme.IsVisible=true;
+		}
     }
-
+    private void EditMode(object sender, EventArgs e)
+    {
+		Slika.IsEnabled = true;
+		Dugme.IsVisible = true;
+		NazivEntry.IsReadOnly = false;
+		OpisEntry.IsReadOnly = false;
+		KolicinaEntry.IsReadOnly = false;
+	}
 
     private async void DodajNamirnicu(object sender, EventArgs e)
     {
-
-
         Namirnica namirnica;
         string nazivNamirnice = NazivEntry.Text;
         string opisNamirnice = OpisEntry.Text;
@@ -52,7 +63,14 @@ public partial class NamirnicePopup : Popup
         // ako je resultat null tj ne izabere se slika, onda se doda default umesto nje
         if (result == null)
         {
-            namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "no_image.png");
+            if(namirnica1== null)
+            {
+				namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), "no_image.png");
+			}
+            else
+            {
+				namirnica = new Namirnica(nazivNamirnice, opisNamirnice, int.Parse(kolicinaNamirnice), namirnica1.Put_slika);
+			}
         }
         else
         {

@@ -51,13 +51,14 @@
                                              Padding="0"
                                              WidthRequest="100">
                                 <Grid>
-                                    <Image Aspect="AspectFill"
-                                       Source="{Binding Put_slika}"
-                                       WidthRequest="90"
-                                       HeightRequest="90"                                    
-                                       VerticalOptions="Center"/>
+                                <model:CustomImageButton ImageId="{Binding Id}" 
+                                                         Clicked="Edit" Aspect="AspectFill" 
+                                                         Source="{Binding Put_slika}" 
+                                                         WidthRequest="90" 
+                                                         HeightRequest="90" 
+                                                         VerticalOptions="Center"/>
 
-                                    <BoxView HeightRequest="25"
+                                <BoxView HeightRequest="25"
                                          WidthRequest="90"
                                          HorizontalOptions="Center"
                                          VerticalOptions="End"
@@ -83,7 +84,8 @@
                                    MaxLines="1"
                                    Margin="0,2,0,0"/>
 
-                                <Button Text="Obrisi"
+                            <Button
+                                    Text="Obrisi"
                                     FontSize="16"
                                     BindingContext="{Binding Id}"
                                     Clicked="Obrisi"
@@ -92,16 +94,27 @@
                                     BackgroundColor="#d95081"
                                     Margin="0,5"
                                     Padding="0"/>
-
-                                <Button Text="Promeni"
-                                    FontSize="16"
+                            <Button
+                                    Text="digni"
+                                    FontSize="10"
                                     BindingContext="{Binding Id}"
-                                    Clicked="Promeni"
-                                    HeightRequest="32"
+                                    Clicked="Digni"
+                                    HeightRequest="15"
                                     WidthRequest="90"
-                                    BackgroundColor="#645d87"
+                                    Margin="0,5"
                                     Padding="0"/>
-                            </VerticalStackLayout>
+                            <Button
+                                    Text="spusti"
+                                    FontSize="10"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="Spusti"
+                                    HeightRequest="15"
+                                    WidthRequest="90"
+                                    Margin="0,5"
+                                    Padding="0"/>
+
+
+                        </VerticalStackLayout>
 
                         </Frame>
                     </DataTemplate>
