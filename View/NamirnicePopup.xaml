@@ -39,6 +39,7 @@
 
         <HorizontalStackLayout HorizontalOptions="Center">
             <Button Text="Dodaj"
+                    x:Name="Dugme"
                     WidthRequest="100"
                     Margin="0,0,10,0"
                     Clicked="DodajNamirnicu"/>
